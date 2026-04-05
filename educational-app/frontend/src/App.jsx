@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React from "react";
+import { useEffect, useState } from "react";
+
 import './App.css'
+import SplashScreen from "./components/SplashScreenAnimation";
 
 /* Pages */
 import Login from "./pages/Login";
@@ -12,19 +14,32 @@ import Quiz from "./pages/Quiz";
 
 
 function App() {
-  return (
-     <BrowserRouter>
-      <Routes>
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500); // 2.5 seconds
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  // 👇 THIS IS THE KEY PART
+  if (loading) {
+    return <SplashScreen />;
+  }
+
+  return (
+    <BrowserRouter>
+      <Routes>
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/lesson/:id" element={<Lesson />} />
         <Route path="/quiz/:id" element={<Quiz />} />
-
       </Routes>
     </BrowserRouter>
   );
 }
 
-export default App
+export default App;
