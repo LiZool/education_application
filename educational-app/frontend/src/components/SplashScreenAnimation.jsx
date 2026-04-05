@@ -10,7 +10,7 @@ import tail from "../assets/mascot/mascot_tail.png"
 
 export default function SplashScreen() {
   return (
-    <div className="flex items-center justify-center h-screen bg-yellow-50">
+    <div className="flex items-center justify-center h-screen bg-blue-900">
       <div className="relative w-[120px] h-[120px]">
 
         {/* Spinning Ring */}
@@ -74,12 +74,12 @@ export default function SplashScreen() {
             transformOrigin: '50% -15%' 
           }}
           animate={{
-            x: [-7, 5, -6, 8, -4],
-            rotate: [-9, 7, -5, 10, -6],
+            x: [-14, 14, -6, 6, -4],
+            rotate: [-7, 7, -3, 10, -4],
             scale: [1, 1.03, 0.98, 1.04, 1]
           }}
           transition={{
-            duration: 0.9,
+            duration: 1,
             repeat: Infinity,
             repeatType: "mirror",
             ease:  [0.45, 0, 0.55, 1]
