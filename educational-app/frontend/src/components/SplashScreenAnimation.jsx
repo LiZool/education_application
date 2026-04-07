@@ -2,11 +2,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import body from "../assets/mascot/mascot_body.png"
-import larm from "../assets/mascot/mascot_leftarmupdate2.png"
-import rarm from "../assets/mascot/mascot_rightarm.png"
-import tail from "../assets/mascot/mascot_tail.png"
-
+/* images */
+import body from "../assets/images/mascot/mascot_body.png"
+import body_smile from "../assets/images/mascot/mascot_bodysmile.png"
+import larm from "../assets/images/mascot/mascot_leftarmupdate2.png"
+import rarm from "../assets/images/mascot/mascot_rightarm.png"
+import tail from "../assets/images/mascot/mascot_tail.png" 
+import book from "../assets/images/mascot/mascot_book2.png" 
 
 export default function SplashScreen() {
   return (
@@ -40,6 +42,20 @@ export default function SplashScreen() {
           </circle>
         </motion.svg>
 
+        <motion.div
+          className="absolute inset-0"
+          animate={{
+            y: [0, 6, -14, 0],        // dip → jump → land
+            scaleY: [1, 0.95, 1.08, 1],
+            scaleX: [1, 1.05, 0.95, 1]
+          }}
+          transition={{
+            duration: 1,
+            repeat: Infinity,
+            ease: [0.4, 0, 0.2, 1]
+          }}
+        > 
+
         {/* Tail */}
         <motion.img
           src={tail}
@@ -57,11 +73,50 @@ export default function SplashScreen() {
           }}
         />
 
-        {/* Body */}
-        <img 
-          src={body} 
-          className="w-full h-full object-contain"
+        {/* Book */}
+        <motion.img
+          src={book}
+          style={{
+          position: 'absolute',
+            top: '30%',      // adjust vertical
+            right: '18%',   // outside right
+            width: '23%',
+            transformOrigin: 'top left' // pivot at shoulder
+          }}
+          transition={{
+            repeat: Infinity,
+            duration: 1.2,
+            ease: "easeInOut"
+          }}
         />
+
+        <div className="absolute inset-0">
+          {/* Neutral Body */}
+          <motion.img
+            src={body}
+            className="absolute w-full h-full object-contain"
+            animate={{ opacity: [1, 1, 0, 0, 1] }}
+            transition={{
+              duration: 5,
+              times: [0, 0.4, 0.5, 0.9, 1],
+              ease: [0.4, 0, 0.2, 1],
+              repeat: Infinity
+            }}
+          />
+
+          {/* Smiling Body */}
+          <motion.img
+            src={body_smile}
+            className="absolute w-full h-full object-contain"
+            animate={{ opacity: [0, 0, 1, 1, 0] }}
+            transition={{
+              duration: 5,
+              times: [0, 0.4, 0.5, 0.9, 1],
+              ease: [0.4, 0, 0.2, 1],
+              repeat: Infinity
+            }}
+          />
+        </div>
 
         {/* Left Arm */}
         <motion.img
@@ -102,6 +157,7 @@ export default function SplashScreen() {
             ease: "easeInOut"
           }}
         />
+        </motion.div>
       </div>
     </div>
   );
