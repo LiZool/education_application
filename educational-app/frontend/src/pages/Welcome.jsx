@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 
 /* images */
 import character from "../assets/images/png-bzcku_monkey.png"
-import border from "../assets/images/border/border.png"
+import border from "../assets/images/border/border3v2.png"
+import border2 from "../assets/images/border/border2v2.png"
 
 export default function Welcome() {
   return (
@@ -23,13 +24,13 @@ export default function Welcome() {
           src={character}
           animate={{ y: [0, -10, 0] }}
           transition={{ repeat: Infinity, duration: 1 }}
-          className="absolute -top-20 left-[42%] -translate-x-1/2 w-[200px] z-0"
+          className="absolute -top-20 left-[42%] -translate-x-1/2 w-[180px] z-0"
         />
 
         {/* Border (MIDDLE) */}
         <img
           src={border}
-          className="absolute inset-0 top-10 w-full h-full object-contain pointer-events-none z-10"
+          className="absolute left-1/2 top-10 -translate-x-1/2 w-[75%] h-auto object-contain pointer-events-none z-10"
         />
 
         {/* Buttons (FRONT) */}
