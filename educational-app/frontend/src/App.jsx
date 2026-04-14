@@ -1,6 +1,7 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Router, Routes, Route, useLocation  } from "react-router-dom";
 import React from "react";
 import { useEffect, useState } from "react";
+import { AnimatePresence } from "framer-motion";
 
 import './App.css'
 import SplashScreen from "./components/SplashScreenAnimation";
@@ -14,6 +15,23 @@ import Dashboard from "./pages/Dashboard";
 import Lesson from "./pages/Lesson";
 import Quiz from "./pages/Quiz";
 
+function AnimatedRoutes() {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/lesson/:id" element={<Lesson />} />
+        <Route path="/quiz/:id" element={<Quiz />} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -33,15 +51,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/home" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/lesson/:id" element={<Lesson />} />
-        <Route path="/quiz/:id" element={<Quiz />} />
-      </Routes>
+      <AnimatedRoutes />
     </BrowserRouter>
   );
 }
