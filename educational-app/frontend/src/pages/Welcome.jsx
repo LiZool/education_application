@@ -1,5 +1,9 @@
 /*** Welcome.jsx Page ***/
 
+/* References */
+//---------- sfx ----------//
+// Button click - https://pixabay.com/sound-effects/search/button%20click/
+
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +13,17 @@ import character from "../assets/images/childrenbook.png"
 import border from "../assets/images/border/border3v2.png"
 import border_2 from "../assets/images/border/border3v2_2.png"
 import arrow_start from "../assets/images/arrow_start.png"
+
+/* sfx */
+import button_click from "../assets/sfx/button-click_sfx.mp3"
+
+const clickAudio = new Audio(button_click);
+clickAudio.volume = 0.5;
+
+const playClick = () => {
+  clickAudio.currentTime = 0; // reset so it plays instantly every time
+  clickAudio.play().catch(err => console.log(err));
+};
 
 export default function Welcome() {
   const navigate = useNavigate();
@@ -63,26 +78,29 @@ export default function Welcome() {
               <div className="absolute inset-0 flex flex-col gap-x-9 md:flex-row items-center justify-center gap-8 lg:gap-12 -translate-y-4 translate-x-2 md:translate-y-0">
 
                 <motion.button 
-                    whileHover={{ scale: 1.2 }}
+                    whileHover={{ scale: 1.2, y: -4 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="text-white text-base hover:text-[#58CC02] hover:text-xl hover:font-bold">
+                    className="text-white text-base 
+                                hover:text-[#58CC02] hover:text-xl hover:font-bold">
                   Lessons
                 </motion.button>
 
                 <motion.button 
-                    whileHover={{ scale: 1.2 }}
+                    whileHover={{ scale: 1.2, y: -4 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="text-white text-base hover:text-[#58CC02] text-xl">
+                    className="text-white text-base 
+                                hover:text-[#58CC02] text-xl hover:font-bold">
                   Progress
                 </motion.button>
 
                 <motion.button 
-                    whileHover={{ scale: 1.2 }}
+                    whileHover={{ scale: 1.2, y: -4 }}
                     whileTap={{ scale: 0.9 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="text-white text-base hover:text-[#58CC02] text-xl">
+                    className="text-white text-base 
+                                hover:text-[#58CC02] text-xl hover:font-bold">
                   Achievement
                 </motion.button>
               </div>
@@ -92,7 +110,9 @@ export default function Welcome() {
         
           {/* Arrow Start Button */}
           <motion.div
-            onClick={() => navigate("/lesson/1")}
+            onClick={() => {
+              playClick();
+              navigate("/lesson/1")}}
             animate={{ 
               scale: [1, 1.08, 1],
               y: [0, -6, 0]
