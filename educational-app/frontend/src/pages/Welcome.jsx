@@ -15,9 +15,9 @@ import border_2 from "../assets/images/border/border3v2_2.png"
 import arrow_start from "../assets/images/arrow_start.png"
 
 /* sfx */
-import button_click from "../assets/sfx/button-click_sfx.mp3"
+import ButtonClick from "../assets/sfx/button-click_sfx.mp3"
 
-const clickAudio = new Audio(button_click);
+const clickAudio = new Audio(ButtonClick);
 clickAudio.volume = 0.5;
 
 const playClick = () => {
