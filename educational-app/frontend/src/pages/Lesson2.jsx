@@ -1,4 +1,4 @@
-/*** Home.jsx Page ***/
+/*** Lesson.jsx Page ***/
 
 import React from "react";
 import { motion } from "framer-motion";
@@ -12,30 +12,17 @@ import IconAchievement from "../assets/images/icons/IconAchievements.png"
 import IconAchievementHover from "../assets/images/icons/IconAchievementsHover.png"
 import IconActivity from "../assets/images/icons/IconActivity.png"
 import IconActivityHover from "../assets/images/icons/IconActivityHover.png"
-/* Images - Lessons */
-import IconLessonEnglish from "../assets/images/icons/Lessons/IconLessonEnglish.png"
-import IconLessonMalay from "../assets/images/icons/Lessons/IconLessonMalay.png"
-import IconLessonScience from "../assets/images/icons/Lessons/IconLessonScience.png"
-import IconLessonMaths from "../assets/images/icons/Lessons/IconLessonMaths.png"
-import IconLessonTechnology from "../assets/images/icons/Lessons/IconLessonTechnology.png"
-import IconLessonGeography from "../assets/images/icons/Lessons/IconLessonGeography.png"
-import IconLessonHistory from "../assets/images/icons/Lessons/IconLessonHistory.png"
 
 /* Images - Icons */
 import PopHover from "../assets/sfx/sfxpop.mp3"
 import UIsfx1 from "../assets/sfx/UISFX.mp3"
-import UIsfx2 from "../assets/sfx/UISFX2.mp3"
 
 
 /* References */
 // https://www.pngfind.com/mpng/JRboTm_free-png-of-library-books-book-library-png/
+
 // https://pixabay.com/sound-effects/search/hover/
-// https://www.pngegg.com/en/png-wmaxi/download
-// https://www.flaticon.com/free-icon/math_3426679
-// https://www.clipartmax.com/download/m2H7i8b1Z5d3b1H7_png-malaysia-icon/
-// https://www.flaticon.com/free-icon/geography_3635966
-// https://icons-for-free.com/history+tutor+world+globe+icon-1320195955885841255/
-// https://www.flaticon.com/free-icon/history_2132336
+
 
 function NavItem({ icon, hoverIcon, label }) {
   const audioRef = React.useRef(null);
@@ -108,17 +95,7 @@ function NavItem({ icon, hoverIcon, label }) {
   );
 }
 
-export default function Home() {
-    const subjects = [
-      { name: "English", icon: IconLessonEnglish },
-      { name: "Malay", icon: IconLessonMalay },
-      { name: "Mathematics", icon: IconLessonMaths },
-      { name: "Science", icon: IconLessonScience },
-      { name: "Technology", icon: IconLessonTechnology },
-      { name: "Geography", icon: IconLessonGeography },
-      { name: "History", icon: IconLessonHistory },
-    ];
-
+export default function Lesson() {
     React.useEffect(() => {
       const unlock = () => {
         const audio = new Audio(PopHover);
@@ -157,43 +134,74 @@ export default function Home() {
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 px-6">
-                      {/* flex-1 grid grid-cols-2 gap-3 pt-2 px-4 justify-items-center */}
-        {
-          subjects.map((subject, index) => (
-            <div
-              key={index}
-              className="
-                bg-white rounded-2xl w-full {/* bg-white rounded-2xl w-full max-w-[300px] */}
-                shadow-lg hover:shadow-xl 
-                hover:-translate-y-2 active:scale-95
-                p-4 flex flex-col items-center
+      <div className="flex-1 relative pt-10 pb-24">
+         {/* SVG PATH (BACKGROUND) */}
+          <svg
+            className="absolute top-0 left-0 w-full h-full pointer-events-none"
+            viewBox="0 0 400 800"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="
+                M200 50 
+                Q120 120 200 190 
+                Q280 260 200 330 
+                Q120 400 200 470 
+                Q280 540 200 610
               "
-            >
-
-            <h3 className="text-xl font-bold text-center">
-              {subject.name}
-            </h3>
-
-            <img
-              src={subject.icon}
-              className="w-[80%] mx-auto mb-2 object-contain"
+              stroke="rgba(255,255,255,0.4)"
+              strokeWidth="6"
+              fill="none"
+              strokeLinecap="round"
             />
+          </svg>
 
+          {[
+  "Mathematics",
+  "Science",
+  "English",
+  "Malay",
+  "Technology",
+  "Biology"
+].map((subject, index) => {
 
-              <div className="w-3/4 h-2 bg-gray-200 rounded-full mt-3 overflow-hidden">
-                <div
-                  className="h-full bg-blue-500"
-                  style={{ width: `${(index + 1) * 15}%` }}
-                />
-              </div>
+  const positions = [
+    "top-[40px] left-1/2 -translate-x-1/2",
+    "top-[130px] left-[25%]",
+    "top-[220px] left-[65%]",
+    "top-[310px] left-[30%]",
+    "top-[400px] left-[70%]",
+    "top-[490px] left-1/2 -translate-x-1/2",
+  ];
 
-              <p className="text-xs mt-1 opacity-70">
-                {(index + 1) * 15}%
-              </p>
-            </div>
-          ))}
+  return (
+    <motion.div
+      key={index}
+      whileHover={{ scale: 1.1 }}
+      className={`
+        absolute
+        ${positions[index]}
+        w-20 h-20
+        bg-white rounded-full shadow-md
+        flex flex-col items-center justify-center
+        cursor-pointer
+      `}
+    >
+      <div className="text-lg">📘</div>
 
+      <p className="text-[10px] font-bold text-center px-1">
+        {subject}
+      </p>
+
+      <div className="w-3/4 h-1 bg-gray-200 rounded-full mt-1 overflow-hidden">
+        <div
+          className="h-full bg-blue-500"
+          style={{ width: `${(index + 1) * 15}%` }}
+        />
+      </div>
+    </motion.div>
+  );
+})}
       </div>
 
       <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-[600px]">
