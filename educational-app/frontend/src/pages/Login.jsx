@@ -5,4 +5,4 @@ const Login = () => {
   return <div> Login </div>;
 };
 
-export default Login;  // ✅ default export
+export default Login;  

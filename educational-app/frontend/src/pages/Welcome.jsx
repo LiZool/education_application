@@ -112,7 +112,7 @@ export default function Welcome() {
           <motion.div
             onClick={() => {
               playClick();
-              navigate("/lesson/1")}}
+              navigate("/lesson")}}
             animate={{ 
               scale: [1, 1.08, 1],
               y: [0, -6, 0]

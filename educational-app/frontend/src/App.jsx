@@ -1,6 +1,4 @@
 /*** App.jsx Page ***/
-
-
 import { BrowserRouter, Router, Routes, Route, useLocation  } from "react-router-dom";
 import React from "react";
 import { useEffect, useState } from "react";
@@ -16,6 +14,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Lesson from "./pages/Lesson";
+import SubjectLessons from "./pages/SubjectLessons"
+import LessonContent from './pages/LessonContent'
 import Quiz from "./pages/Quiz";
 
 function AnimatedRoutes() {
@@ -29,7 +29,9 @@ function AnimatedRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/lesson/:id" element={<Lesson />} />
+        <Route path="/lesson" element={<Lesson />} />
+        <Route path="/subject/:name" element={<SubjectLessons />} />
+        <Route path="/lesson/:subject/:lesson" element={<LessonContent />} />
         <Route path="/quiz/:id" element={<Quiz />} />
       </Routes>
     </AnimatePresence>

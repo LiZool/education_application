@@ -2,6 +2,7 @@
 
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 /* Images - Icons */
 import IconHome from "../assets/images/icons/IconHome.png"
@@ -22,7 +23,7 @@ import IconLessonGeography from "../assets/images/icons/Lessons/IconLessonGeogra
 import IconLessonHistory from "../assets/images/icons/Lessons/IconLessonHistory.png"
 
 /* Images - Icons */
-import PopHoversfx from "../assets/sfx/sfxpop.mp3"
+import WooshHoversfx from "../assets/sfx/sfxwoosh2.mp3"
 import UIsfx1 from "../assets/sfx/UISFX2.mp3"
 import UIsfx from "../assets/sfx/UISFX.mp3"
 
@@ -36,6 +37,7 @@ import UIsfx from "../assets/sfx/UISFX.mp3"
 // https://www.flaticon.com/free-icon/geography_3635966
 // https://icons-for-free.com/history+tutor+world+globe+icon-1320195955885841255/
 // https://www.flaticon.com/free-icon/history_2132336
+// https://www.flaticon.com/free-icon/english-language_5003987
 
 function NavItem({ icon, hoverIcon, label }) {
   const audioRef = React.useRef(null);
@@ -109,10 +111,11 @@ function NavItem({ icon, hoverIcon, label }) {
 }
 
 function LessonCard({ subject, index }) {
+  const navigate = useNavigate();
   const audioRef = React.useRef(null);
 
   if (!audioRef.current) {
-    audioRef.current = new Audio(PopHoversfx);
+    audioRef.current = new Audio(WooshHoversfx);
     audioRef.current.volume = 0.4;
   }
 
@@ -123,9 +126,11 @@ function LessonCard({ subject, index }) {
         audioRef.current.play().catch(() => {});
       }}
 
+      onClick={() => navigate(`/lessons/${subject.name}`)}
       whileHover={{ y: -8, scale: 1.03 }}
 
       className="
+        cursor-pointer
         bg-white rounded-2xl w-full
         shadow-lg hover:shadow-xl
         p-4 flex flex-col items-center

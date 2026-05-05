@@ -5,4 +5,4 @@ const Dashboard = () => {
   return <div>Dashboard</div>;
 };
 
-export default Dashboard;  // ✅ default export
+export default Dashboard;  

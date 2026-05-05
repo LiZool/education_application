@@ -5,4 +5,4 @@ const Signup = () => {
   return <div> Signup </div>;
 };
 
-export default Signup;  // ✅ default export
+export default Signup;  
