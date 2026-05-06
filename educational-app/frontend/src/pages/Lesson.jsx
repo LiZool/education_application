@@ -110,9 +110,23 @@ function NavItem({ icon, hoverIcon, label }) {
   );
 }
 
+
 function LessonCard({ subject, index }) {
   const navigate = useNavigate();
   const audioRef = React.useRef(null);
+  const [ripples, setRipples] = React.useState([]);
+
+  const createRipple = (e) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+
+  const newRipple = { x, y, id: Date.now() };
+  setRipples((prev) => [...prev, newRipple]);
+
+  setTimeout(() => {
+    setRipples((prev) => prev.filter(r => r.id !== newRipple.id));
+  }, 500);};
 
   if (!audioRef.current) {
     audioRef.current = new Audio(WooshHoversfx);
@@ -126,23 +140,52 @@ function LessonCard({ subject, index }) {
         audioRef.current.play().catch(() => {});
       }}
 
-      onClick={() => navigate(`/lessons/${subject.name}`)}
-      whileHover={{ y: -8, scale: 1.03 }}
+      onClick={(e) => {
+        createRipple(e);
+        audioRef.current.currentTime = 0;
+        audioRef.current.play().catch(() => {});
+        navigate(`/subject/${subject.name}`);
+      }}
+
+      whileHover={{ y: -10, scale: 1.05 }}
+      whileTap={{ scale: 0.92, y: 2 }}
 
       className="
+        group
+        relative overflow-hidden
         cursor-pointer
         bg-white rounded-2xl w-full
         shadow-lg hover:shadow-xl
+        hover:ring-4 hover:ring-gray-300
         p-4 flex flex-col items-center
       "
     >
-      <h3 className="text-xl font-bold text-center">
+
+      {/* 🔥 PUT RIPPLE HERE */}
+      <div className="absolute inset-0 pointer-events-none">
+        {ripples.map((r) => (
+          <span
+            key={r.id}
+            className="absolute bg-blue-300 opacity-30 rounded-full animate-ping"
+            style={{
+              top: r.y,
+              left: r.x,
+              width: 100,
+              height: 100,
+              transform: "translate(-50%, -50%)"
+            }}
+          />
+        ))}
+      </div>
+
+      {/* NORMAL CONTENT BELOW */}
+      <h3 className="text-xl font-bold text-center mb-3">
         {subject.name}
       </h3>
 
       <img
         src={subject.icon}
-        className="w-[80%] mx-auto mb-2 object-contain"
+        className="w-[80%] mx-auto mb-2 object-contain transition-transform duration-200 group-hover:scale-110"
       />
 
       <div className="w-3/4 h-2 bg-gray-200 rounded-full mt-3 overflow-hidden">
@@ -155,6 +198,7 @@ function LessonCard({ subject, index }) {
       <p className="text-xs mt-1 opacity-70">
         {(index + 1) * 15}%
       </p>
+
     </motion.div>
   );
 }
