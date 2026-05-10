@@ -1,28 +1,21 @@
-/*** Lesson.jsx Page ***/
+/*** Subjects.jsx Page ***/
 
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import Navbar from "../components/NavBar";
 
-/* Images - Icons */
-import IconHome from "../assets/images/icons/IconHome.png"
-import IconHomeHover from "../assets/images/icons/IconHomeHover.png"
-import IconLesson from "../assets/images/icons/IconLesson.png"
-import IconLessonHover from "../assets/images/icons/IconLessonHover.png"
-import IconAchievement from "../assets/images/icons/IconAchievements.png"
-import IconAchievementHover from "../assets/images/icons/IconAchievementsHover.png"
-import IconActivity from "../assets/images/icons/IconActivity.png"
-import IconActivityHover from "../assets/images/icons/IconActivityHover.png"
 /* Images - Lessons */
-import IconLessonEnglish from "../assets/images/icons/Lessons/IconLessonEnglish.png"
-import IconLessonMalay from "../assets/images/icons/Lessons/IconLessonMalay.png"
-import IconLessonScience from "../assets/images/icons/Lessons/IconLessonScience.png"
-import IconLessonMaths from "../assets/images/icons/Lessons/IconLessonMaths.png"
-import IconLessonTechnology from "../assets/images/icons/Lessons/IconLessonTechnology.png"
-import IconLessonGeography from "../assets/images/icons/Lessons/IconLessonGeography.png"
-import IconLessonHistory from "../assets/images/icons/Lessons/IconLessonHistory.png"
+import IconSubjectEnglish from "../assets/images/icons/Subjects/IconSubjectEnglish.png"
+import IconSubjectMalay from "../assets/images/icons/Subjects/IconSubjectMalay.png"
+import IconSubjectScience from "../assets/images/icons/Subjects/IconSubjectScience.png"
+import IconSubjectMaths from "../assets/images/icons/Subjects/IconSubjectMaths.png"
+import IconSubjectTechnology from "../assets/images/icons/Subjects/IconSubjectTechnology.png"
+import IconSubjectGeography from "../assets/images/icons/Subjects/IconSubjectGeography.png"
+import IconSubjectHistory from "../assets/images/icons/Subjects/IconSubjectHistory.png"
 
-/* Images - Icons */
+/* Sfx  */
 import WooshHoversfx from "../assets/sfx/sfxwoosh2.mp3"
 import UIsfx1 from "../assets/sfx/UISFX2.mp3"
 import UIsfx from "../assets/sfx/UISFX.mp3"
@@ -204,14 +197,15 @@ function LessonCard({ subject, index }) {
 }
 
 export default function Lesson() {
+    const { gradeId } = useParams();
     const subjects = [
-      { name: "English", icon: IconLessonEnglish },
-      { name: "Malay", icon: IconLessonMalay },
-      { name: "Mathematics", icon: IconLessonMaths },
-      { name: "Science", icon: IconLessonScience },
-      { name: "Technology", icon: IconLessonTechnology },
-      { name: "Geography", icon: IconLessonGeography },
-      { name: "History", icon: IconLessonHistory },
+      { name: "English", icon: IconSubjectEnglish },
+      { name: "Malay", icon: IconSubjectMalay },
+      { name: "Mathematics", icon: IconSubjectMaths },
+      { name: "Science", icon: IconSubjectScience },
+      { name: "Technology", icon: IconSubjectTechnology },
+      { name: "Geography", icon: IconSubjectGeography }, 
+      { name: "History", icon: IconSubjectHistory },
     ];
 
     React.useEffect(() => {
@@ -259,15 +253,7 @@ export default function Lesson() {
         ))}
       </div>
 
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-[600px]">
-        <div className="bg-white/40 backdrop-blur-md rounded-2xl flex justify-center items-center gap-16 py-4"> 
-        {/*  <div className="bg-white/40 backdrop-blur-md rounded-2xl flex justify-center items-center gap-16 py-4">  */}
-          <NavItem icon={IconHome} hoverIcon={IconHomeHover} label="Home" />
-          <NavItem icon={IconLesson} hoverIcon={IconLessonHover} label="Lessons" />
-          <NavItem icon={IconActivity} hoverIcon={IconActivityHover} label="Progress" />
-          <NavItem icon={IconAchievement} hoverIcon={IconAchievementHover} label="Awards" />
-        </div>
-      </div>
+      <Navbar />
     </div>
   );
 }

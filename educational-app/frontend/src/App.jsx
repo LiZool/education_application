@@ -13,7 +13,7 @@ import Home from "./pages/Home"
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
-import Lesson from "./pages/Lesson";
+import Subjects from "./pages/Subjects";
 import SubjectLessons from "./pages/SubjectLessons"
 import LessonContent from './pages/LessonContent'
 import Quiz from "./pages/Quiz";
@@ -29,7 +29,7 @@ function AnimatedRoutes() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/lesson" element={<Lesson />} />
+        <Route path="/subjects/:gradeId" element={<Subjects />} />
         <Route path="/subject/:name" element={<SubjectLessons />} />
         <Route path="/lesson/:subject/:lesson" element={<LessonContent />} />
         <Route path="/quiz/:id" element={<Quiz />} />
