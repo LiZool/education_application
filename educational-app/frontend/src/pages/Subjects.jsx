@@ -1,10 +1,12 @@
-/*** Subjects.jsx Page ***/
+// src/pages/Subjects.js
 
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/NavBar";
+import { LessonsData } from "../data/LessonsData.js";
+import { SubjectsData } from "../data/SubjectsData";
 
 /* Images - Lessons */
 import IconSubjectEnglish from "../assets/images/icons/Subjects/IconSubjectEnglish.png"
@@ -104,7 +106,7 @@ function NavItem({ icon, hoverIcon, label }) {
 }
 
 
-function LessonCard({ subject, index }) {
+function LessonCard({ subject, index, gradeId }) {
   const navigate = useNavigate();
   const audioRef = React.useRef(null);
   const [ripples, setRipples] = React.useState([]);
@@ -137,7 +139,7 @@ function LessonCard({ subject, index }) {
         createRipple(e);
         audioRef.current.currentTime = 0;
         audioRef.current.play().catch(() => {});
-        navigate(`/subject/${subject.name}`);
+        navigate(`/subjects/${gradeId}/${subject.name}`)
       }}
 
       whileHover={{ y: -10, scale: 1.05 }}
@@ -198,15 +200,8 @@ function LessonCard({ subject, index }) {
 
 export default function Lesson() {
     const { gradeId } = useParams();
-    const subjects = [
-      { name: "English", icon: IconSubjectEnglish },
-      { name: "Malay", icon: IconSubjectMalay },
-      { name: "Mathematics", icon: IconSubjectMaths },
-      { name: "Science", icon: IconSubjectScience },
-      { name: "Technology", icon: IconSubjectTechnology },
-      { name: "Geography", icon: IconSubjectGeography }, 
-      { name: "History", icon: IconSubjectHistory },
-    ];
+
+    const subjects = SubjectsData[gradeId] || [];
 
     React.useEffect(() => {
       const unlock = () => {
@@ -233,7 +228,6 @@ export default function Lesson() {
   return (
     <div className="min-h-screen bg-blue-500 flex flex-col">
 
-      {/* 🔝 TOP BAR */}
       <div className="w-full px-6 py-4 flex justify-between items-center bg-blue-600 text-white">
         <div>
           <p className="text-sm opacity-80">Welcome back</p>
@@ -246,11 +240,16 @@ export default function Lesson() {
       </div>
 
       {/* MAIN CONTENT */}
-      <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 px-6">
+      <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 px-6 content-start">
                       {/* flex-1 grid grid-cols-2 gap-3 pt-2 px-4 justify-items-center */}
          {subjects.map((subject, index) => (
-          <LessonCard key={index} subject={subject} index={index} />
-        ))}
+            <LessonCard
+              key={index}
+              subject={subject}
+              index={index}
+              gradeId={gradeId}
+            />
+          ))}
       </div>
 
       <Navbar />

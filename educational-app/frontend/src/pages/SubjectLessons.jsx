@@ -3,22 +3,20 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import { lessonsData } from "../data/lessons";
+
+import { LessonsData } from "../data/LessonsData.js";
 
 export default function SubjectLessons() {
 
-  const { name } = useParams(); // e.g. "English"
   const navigate = useNavigate();
-  const lessonsObj = lessonsData[name] || [];
+  const { gradeId, subjectName } = useParams();
 
-  const lessons = Object.entries(lessonsObj).map(([id, lesson]) => ({
-  id,
-  ...lesson,
-}));
+  // Get lessons for selected grade + subject
+  const lessons = LessonsData[gradeId]?.[subjectName] || [];
 
   return (
     <div className="min-h-screen bg-blue-500 p-6 text-white">
-      <h1 className="text-3xl font-bold mb-6">{name} Lessons </h1>
+      <h1 className="text-3xl font-bold mb-6">{subjectName} Lessons </h1>
 
       <div className="grid gap-4">
         {lessons.map((lesson) => (
@@ -26,7 +24,7 @@ export default function SubjectLessons() {
             key={lesson.id}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => navigate(`/lesson/${name}/${lesson.id}`)}
+            onClick={() => navigate(`/lesson/${gradeId}/${subjectName}/${lesson.id}`)}
             className="bg-white text-black p-4 rounded-xl shadow cursor-pointer"
           >
             {lesson.title}
