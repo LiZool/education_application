@@ -17,7 +17,7 @@ import Subjects from "./pages/Subjects";
 import SubjectLessons from "./pages/SubjectLessons"
 import LessonContent from './pages/LessonContent'
 import Quiz from "./pages/Quiz";
-import G1AdditionGame from "./pages/games/G1AdditionGame";
+import G1AdditionQuiz from "./pages/quiz/g1AdditionQuiz";
 
 function AnimatedRoutes() {
   const location = useLocation();
@@ -33,7 +33,7 @@ function AnimatedRoutes() {
         <Route path="/subjects/:gradeId" element={<Subjects />} />
         <Route path="/subjects/:gradeId/:subjectName" element={<SubjectLessons />} />
         <Route path="/lesson/:gradeId/:subjectName/:lessonId" element={<LessonContent />} />
-          <Route path="/games/g1-addition" element={<g1AdditionGame />} />
+          <Route path="/quiz/g1-addition" element={<G1AdditionQuiz />} />
         <Route path="/quiz/:id" element={<Quiz />} />
       </Routes>
     </AnimatePresence>

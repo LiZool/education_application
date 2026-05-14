@@ -37,27 +37,23 @@ export default function LessonContent() {
       </h1>
 
       <div className="bg-white text-black rounded-2xl p-6 shadow-lg">
+        <div className="space-y-4">
+          {lesson.content.map((item, index) => {
 
-        <p className="text-lg leading-relaxed">
-          <div className="space-y-4">
-          {lesson.content.map((block, index) => {
-
-            if (block.type === "text") {
-              return (   
-                <p
-                  key={index}
-                  className="text-lg leading-relaxed"
-                >
-                  {block.value}
+            if (item.type === "text") {
+              return (
+                <p key={index} className="text-lg leading-relaxed">
+                  {item.value}
                 </p>
               );
             }
 
-            if (block.type === "image") {
+            if (item.type === "image") {
               return (
                 <img
                   key={index}
-                  src={block.value}
+                  src={item.value}
+                  alt=""
                   className="rounded-xl w-full"
                 />
               );
@@ -65,13 +61,10 @@ export default function LessonContent() {
 
             return null;
           })}
-
         </div>
-        </p>
 
         <button
-          onClick={() => navigate(lesson.game)}
-
+          onClick={() => navigate(lesson.gameRoute)}
           className="
             mt-6
             bg-yellow-400

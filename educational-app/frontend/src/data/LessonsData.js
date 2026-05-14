@@ -46,7 +46,7 @@ export const LessonsData = {
       {
         id: 1,
         title: "Addition",
-        game: "/games/g1-addition",
+        gameRoute: "/games/g1-addition",
         content: [
           {
             type: "text",
