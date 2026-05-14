@@ -47,7 +47,7 @@ export default function Welcome() {
               
             </motion.h1>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
@@ -57,7 +57,7 @@ export default function Welcome() {
                 <span className="font-fredoka text-2xl md:text-3xl font-bold text-[#58CC02]">Let’s</span>{" "}
                 <span className="font-fredoka text-2xl md:text-3xl font-bold text-[#FFD93D]">Play & Learn!</span>
               </h1>
-          </motion.p>
+          </motion.div>
           
           {/* Welcome Content */}
           <div className="relative w-full flex flex-col items-center mt-10">

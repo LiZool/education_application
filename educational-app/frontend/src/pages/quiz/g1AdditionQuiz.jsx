@@ -124,49 +124,49 @@ export default function G1AdditionQuiz() {
 
     // 🎮 GAME SCREEN
     return (
-        <div className="min-h-screen bg-blue-500 flex flex-col items-center justify-center text-white p-6">
+        <div className="min-h-screen bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center p-6">
+            <div className="bg-white rounded-3xl shadow-2xl p-10 w-full max-w-2xl text-center">
+                <p className="text-2xl mb-4">
+                    Question {count + 1} / {maxQuestions}
+                </p>
 
-            <p className="text-2xl mb-4">
-                Question {count + 1} / {maxQuestions}
-            </p>
+                <h1 className="text-6xl font-bold mb-10">
+                    {question.num1} + {question.num2}
+                </h1>
 
-            <h1 className="text-6xl font-bold mb-10">
-                {question.num1} + {question.num2}
-            </h1>
+                <div className="grid grid-cols-2 gap-4">
 
-            <div className="grid grid-cols-2 gap-4">
+                    {question.options.map((option, index) => (
 
-                {question.options.map((option, index) => (
+                        <button
+                            key={index}
+                            onClick={() => checkAnswer(option)}
+                            className="
+                                bg-white
+                                text-black
+                                text-3xl
+                                font-bold
+                                px-10 py-6
+                                rounded-2xl
+                                hover:scale-105
+                                transition
+                            "
+                        >
+                            {option}
+                        </button>
 
-                    <button
-                        key={index}
-                        onClick={() => checkAnswer(option)}
-                        className="
-                            bg-white
-                            text-black
-                            text-3xl
-                            font-bold
-                            px-10 py-6
-                            rounded-2xl
-                            hover:scale-105
-                            transition
-                        "
-                    >
-                        {option}
-                    </button>
+                    ))}
 
-                ))}
+                </div>
 
+                <p className="mt-8 text-3xl font-bold">
+                    {message}
+                </p>
+
+                <p className="mt-4 text-xl">
+                    Score: {score}
+                </p>
             </div>
-
-            <p className="mt-8 text-3xl font-bold">
-                {message}
-            </p>
-
-            <p className="mt-4 text-xl">
-                Score: {score}
-            </p>
-
         </div>
     );
 }

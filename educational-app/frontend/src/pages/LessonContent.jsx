@@ -64,7 +64,7 @@ export default function LessonContent() {
         </div>
 
         <button
-          onClick={() => navigate(lesson.gameRoute)}
+          onClick={() => navigate(lesson.quizRoute)}
           className="
             mt-6
             bg-yellow-400
