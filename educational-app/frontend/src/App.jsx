@@ -41,7 +41,28 @@ function AnimatedRoutes() {
 }
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => {
+  return !sessionStorage.getItem("welcomePlayed");
+    });
+
+    useEffect(() => {
+
+      if (!sessionStorage.getItem("welcomePlayed")) {
+
+        const timer = setTimeout(() => {
+          setLoading(false);
+
+          sessionStorage.setItem(
+            "welcomePlayed",
+            "true"
+          );
+
+        }, 2500);
+
+        return () => clearTimeout(timer);
+      }
+
+    }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {

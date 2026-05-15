@@ -126,13 +126,40 @@ export default function G1AdditionQuiz() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center p-6">
             <div className="bg-white rounded-3xl shadow-2xl p-10 w-full max-w-2xl text-center">
-                <p className="text-2xl mb-4">
-                    Question {count + 1} / {maxQuestions}
+                <p className="text-2xl font-bold mb-3">
+                    Addition {count + 1} / {maxQuestions}
                 </p>
 
-                <h1 className="text-6xl font-bold mb-10">
-                    {question.num1} + {question.num2}
-                </h1>
+                {/* Progress Bar */}
+                <div className="w-full bg-gray-200 rounded-full h-5 mb-8 overflow-hidden">
+                    <div
+                        className="
+                            bg-gradient-to-r
+                            from-green-400
+                            to-green-600
+                            h-5
+                            rounded-full
+                            transition-all
+                            duration-500
+                        "
+                        style={{
+                            width: `${((count + 1) / maxQuestions) * 100}%`
+                        }}
+                    />
+                </div>
+
+                <div className="
+                    bg-[#6CD1F0]
+                    rounded-3xl
+                    py-10
+                    px-6
+                    mb-10
+                    shadow-inner
+                ">
+                    <h1 className="text-6xl font-extrabold text-white">
+                        {question.num1} + {question.num2}
+                    </h1>
+                </div>
 
                 <div className="grid grid-cols-2 gap-4">
 
@@ -142,14 +169,19 @@ export default function G1AdditionQuiz() {
                             key={index}
                             onClick={() => checkAnswer(option)}
                             className="
-                                bg-white
-                                text-black
+                                bg-yellow-400
+                                hover:bg-yellow-500
+                                text-white
                                 text-3xl
-                                font-bold
-                                px-10 py-6
-                                rounded-2xl
+                                font-extrabold
+                                px-10
+                                py-6
+                                rounded-3xl
+                                shadow-lg
                                 hover:scale-105
-                                transition
+                                active:scale-95
+                                transition-all
+                                duration-200
                             "
                         >
                             {option}
