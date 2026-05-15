@@ -47,10 +47,31 @@ export const LessonsData = {
         id: 1,
         title: "Addition",
         quizRoute: "/quiz/g1-addition",
+        
         content: [
           {
             type: "text",
             value: "Addition means combining numbers together."
+          },
+
+           {
+            type: "text",
+            value: "If we have 2 apples and add 1 more apple..."
+          },
+
+              {
+            type: "image",
+            value: "/images/math/addition-apples.png"
+          },
+
+          {
+            type: "text",
+            value: "Now we have 3 apples!"
+          },
+
+          {
+            type: "text",
+            value: "2 + 1 = 3"
           }
         ]
         

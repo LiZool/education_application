@@ -64,15 +64,6 @@ function App() {
 
     }, []);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500); // 2.5 seconds
-
-    return () => clearTimeout(timer);
-  }, []);
-
-  // 👇 THIS IS THE KEY PART
   if (loading) {
     return <SplashScreen />;
   }

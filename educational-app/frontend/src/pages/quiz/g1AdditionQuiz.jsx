@@ -1,8 +1,10 @@
 // src/pages/games/G1AdditionQuiz.jsx
 
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function G1AdditionQuiz() {
+    const navigate = useNavigate();
 
     const maxQuestions = 10;
 
@@ -105,19 +107,37 @@ export default function G1AdditionQuiz() {
                     {stars}
                 </p>
 
-                <button
-                    onClick={() => window.location.reload()}
-                    className="
-                        bg-yellow-400
-                        text-black
-                        font-bold
-                        px-8 py-4
-                        rounded-2xl
-                    "
-                >
-                    Play Again
-                </button>
+                <div className="flex gap-4 mt-6">
+                    <button
+                        onClick={() => window.location.reload()}
+                        className="
+                            bg-yellow-400
+                            hover:bg-yellow-500
+                            text-black
+                            font-bold
+                            px-8 py-4
+                            rounded-2xl
+                            transition
+                        "
+                    >
+                        Try Again?
+                    </button>
 
+                    <button
+                        onClick={() => navigate("/subjects/1/Mathematics")}
+                        className="
+                            bg-white
+                            hover:bg-gray-200
+                            text-black
+                            font-bold
+                            px-8 py-4
+                            rounded-2xl
+                            transition
+                        "
+                    >
+                        📚 Back to Lessons
+                    </button>
+                </div>
             </div>
         );
     }
@@ -161,7 +181,7 @@ export default function G1AdditionQuiz() {
                     </h1>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 gap-8">
 
                     {question.options.map((option, index) => (
 
@@ -169,8 +189,8 @@ export default function G1AdditionQuiz() {
                             key={index}
                             onClick={() => checkAnswer(option)}
                             className="
-                                bg-yellow-400
-                                hover:bg-yellow-500
+                                bg-[#BCC6CC]
+                                hover:bg-[#8599A8]
                                 text-white
                                 text-3xl
                                 font-extrabold
@@ -178,7 +198,7 @@ export default function G1AdditionQuiz() {
                                 py-6
                                 rounded-3xl
                                 shadow-lg
-                                hover:scale-105
+                                hover:scale-110
                                 active:scale-95
                                 transition-all
                                 duration-200
