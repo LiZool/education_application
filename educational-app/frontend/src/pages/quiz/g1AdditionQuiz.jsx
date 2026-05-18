@@ -62,7 +62,12 @@ export default function G1AdditionQuiz() {
         setTimeout(() => {
 
             if (nextCount >= maxQuestions) {
-                setQuizOver(true);
+                navigate("/completerewards", {
+                    state: {
+                        score: newScore,
+                        maxQuestions
+                    }
+                });
 
                 // SAVE SCORE
                 localStorage.setItem(
@@ -78,69 +83,6 @@ export default function G1AdditionQuiz() {
 
         }, 800);
     };
-
-    // ⭐ RESULTS SCREEN
-    if (quizOver) {
-
-        let stars = "⭐";
-
-        if (score >= 8) {
-            stars = "⭐⭐⭐";
-        }
-
-        else if (score >= 5) {
-            stars = "⭐⭐";
-        }
-
-        return (
-            <div className="min-h-screen bg-blue-500 flex flex-col items-center justify-center text-white p-6">
-
-                <h1 className="text-5xl font-bold mb-6">
-                    Quiz Complete!
-                </h1>
-
-                <p className="text-3xl mb-4">
-                    Final Score: {score} / {maxQuestions}
-                </p>
-
-                <p className="text-6xl mb-8">
-                    {stars}
-                </p>
-
-                <div className="flex gap-4 mt-6">
-                    <button
-                        onClick={() => window.location.reload()}
-                        className="
-                            bg-yellow-400
-                            hover:bg-yellow-500
-                            text-black
-                            font-bold
-                            px-8 py-4
-                            rounded-2xl
-                            transition
-                        "
-                    >
-                        Try Again?
-                    </button>
-
-                    <button
-                        onClick={() => navigate("/subjects/1/Mathematics")}
-                        className="
-                            bg-white
-                            hover:bg-gray-200
-                            text-black
-                            font-bold
-                            px-8 py-4
-                            rounded-2xl
-                            transition
-                        "
-                    >
-                        📚 Back to Lessons
-                    </button>
-                </div>
-            </div>
-        );
-    }
 
     // 🎮 GAME SCREEN
     return (

@@ -1,4 +1,5 @@
 // src/data/LessonsData.js
+import AdditionImg from "../assets/images/grades/addition/What-Is-Addition-1.png";
 
 export const LessonsData = {
   1: {
@@ -45,7 +46,7 @@ export const LessonsData = {
     Mathematics: [
       {
         id: 1,
-        title: "Addition",
+        title: "Learn addition",
         quizRoute: "/quiz/g1-addition",
         
         content: [
@@ -56,23 +57,23 @@ export const LessonsData = {
 
            {
             type: "text",
-            value: "If we have 2 apples and add 1 more apple..."
+            value: "If we have 6 apples and add 4 more apple..."
           },
 
               {
             type: "image",
-            value: "/images/math/addition-apples.png"
+            value: AdditionImg
           },
 
           {
             type: "text",
-            value: "Now we have 3 apples!"
+            value: "Now we have 10 apples!"
           },
 
-          {
+          /*{
             type: "text",
             value: "2 + 1 = 3"
-          }
+          } */
         ]
         
       },
