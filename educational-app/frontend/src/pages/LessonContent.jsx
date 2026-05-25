@@ -1,4 +1,4 @@
-// src/pages/LessonContent.js
+// src/pages/Lessonfntent.js
 
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -136,12 +136,25 @@ export default function LessonContent() {
 
             if (item.type === "image") {
               return (
+              <div
+                key={index}
+                className={`flex ${
+                  item.align === "left"
+                    ? "justify-start"
+                    : item.align === "right"
+                    ? "justify-end"
+                    : "justify-center"
+                }`}
+              >
                 <img
-                  key={index}
                   src={item.value}
                   alt=""
-                  className="rounded-xl w-full"
+                  className={`
+                    rounded-xl
+                    ${item.width || "w-full"}
+                  `}
                 />
+              </div>
               );
             }
 

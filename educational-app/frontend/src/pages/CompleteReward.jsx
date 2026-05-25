@@ -259,7 +259,7 @@ export default function CompleteReward() {
               transition
             "
           >
-            🔄 Play Again
+            Play Again
           </button>
 
           <button
@@ -277,7 +277,7 @@ export default function CompleteReward() {
               transition
             "
           >
-            📚 Back to Lessons
+            Back to Lessons
           </button>
 
         </div>

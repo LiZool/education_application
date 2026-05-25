@@ -6,7 +6,7 @@ export const LessonsData = {
     English: [
       {
         id: 1,
-        title: "Alphabet",
+        title: "Sentence Structure",
 
         content: [
           {
@@ -60,9 +60,11 @@ export const LessonsData = {
             value: "If we have 6 apples and add 4 more apple..."
           },
 
-              {
+          {
             type: "image",
-            value: AdditionImg
+            value: AdditionImg,
+            width: "w-80",
+            align: "center"
           },
 
           {
