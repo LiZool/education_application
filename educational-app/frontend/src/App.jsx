@@ -17,7 +17,7 @@ import Subjects from "./pages/Subjects";
 import SubjectLessons from "./pages/SubjectLessons"
 import LessonContent from './pages/LessonContent'
 import Quiz from "./pages/Quiz";
-import G1AdditionQuiz from "./pages/quiz/maths/year1/g1AdditionQuiz";
+import G1AdditionQuiz from "./pages/lessons/maths/year1/g1AdditionQuiz";
 import CompleteReward from "./pages/CompleteReward";
 
 function AnimatedRoutes() {
