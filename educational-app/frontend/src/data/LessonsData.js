@@ -55,7 +55,7 @@ export const LessonsData = {
             value: "Addition means combining numbers together."
           },
 
-           {
+          {
             type: "text",
             value: "If we have 6 apples and add 4 more apple..."
           },
@@ -87,8 +87,26 @@ export const LessonsData = {
         content: [
           {
             type: "text",
-            value: "Subtraction means - numbers together."
-          }
+            value: "Subtraction means taking away numbers."
+          },
+
+          {
+            type: "text",
+            value: "If we have 5 apples and take away 3 apples..."
+          },
+
+          {
+            type: "image",
+            value: AdditionImg,
+            width: "w-80",
+            align: "center"
+          },
+
+          {
+            type: "text",
+            value: "Now we have 2 apples!"
+          },
+
         ]
       },
 
