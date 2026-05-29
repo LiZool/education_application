@@ -1,4 +1,4 @@
-// src/pages/Lessonfntent.js
+// src/pages/LessonContent.js
 
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
@@ -36,7 +36,9 @@ export default function LessonContent() {
 
         {/* Back Button */}
         <button
-          onClick={() => navigate(-1)}
+          onClick={() =>
+            navigate(`/subjects/${gradeId}/${subjectName}`)
+          }
           className="
             absolute left-0
             bg-white
@@ -78,38 +80,36 @@ export default function LessonContent() {
                     .map((part, i) => {
 
                       // Highlight numbers
-                      if (part === "6") {
-                        return (
-                          <span
-                            key={i}
-                            className="inline-block text-red-500 text-6xl animate-bounce"
-                          >
-                            {part}
-                          </span>
-                        );
-                      }
+                      if (!isNaN(part) && part !== "") {
 
-                      if (part === "4") {
-                        return (
-                          <span
-                            key={i}
-                            className="inline-block text-green-500 text-6xl animate-bounce"
-                          >
-                            {part}
-                          </span>
-                        );
-                      }
+                      const colors = [
+                        "text-red-500",
+                        "text-blue-500",
+                        "text-green-500",
+                        "text-pink-500",
+                        "text-purple-500",
+                        "text-orange-500",
+                      ];
 
-                      if (part === "10") {
-                        return (
-                          <span
-                            key={i}
-                            className="inline-block text-purple-500 text-7xl animate-bounce"
-                          >
-                            {part}
-                          </span>
-                        );
-                      }
+                      const randomColor =
+                        colors[Number(part) % colors.length];
+
+                      return (
+                        <span
+                          key={i}
+                          className={`
+                            inline-block
+                            ${randomColor}
+                            text-6xl
+                            font-extrabold
+                            animate-bounce
+                            mx-1
+                          `}
+                        >
+                          {part}
+                        </span>
+                      );
+                    }
 
                       // Highlight, math symbols
                       if (["+", "-", "="].includes(part)) {
@@ -164,7 +164,7 @@ export default function LessonContent() {
 
         <div className="flex justify-center mt-4">
           <button
-            onClick={() => navigate(lesson.quizRoute)}
+            onClick={() => navigate(lesson.lessonRoute)}
             className="
               mt-6
               bg-yellow-400
@@ -177,7 +177,7 @@ export default function LessonContent() {
               transition
             "
           >
-            Start Quiz
+            Start Lesson
           </button>
         </div>
       </div>

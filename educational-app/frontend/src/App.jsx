@@ -17,7 +17,9 @@ import Subjects from "./pages/Subjects";
 import SubjectLessons from "./pages/SubjectLessons"
 import LessonContent from './pages/LessonContent'
 import Quiz from "./pages/Quiz";
-import G1AdditionQuiz from "./pages/lessons/maths/year1/g1AdditionQuiz";
+  // Lessons
+  import G1AdditionLesson from "./pages/lessons/maths/year1/g1AdditionLesson";
+  import G1SubtractionLesson from "./pages/lessons/maths/year1/g1SubtractionLesson";
 import CompleteReward from "./pages/CompleteReward";
 
 function AnimatedRoutes() {
@@ -34,7 +36,8 @@ function AnimatedRoutes() {
         <Route path="/subjects/:gradeId" element={<Subjects />} />
         <Route path="/subjects/:gradeId/:subjectName" element={<SubjectLessons />} />
         <Route path="/lesson/:gradeId/:subjectName/:lessonId" element={<LessonContent />} />
-          <Route path="/quiz/g1-addition" element={<G1AdditionQuiz />} />
+          <Route path="/practice/g1-addition" element={<G1AdditionLesson />} />
+          <Route path="/practice/g1-subtraction" element={<G1SubtractionLesson />} />
         <Route path="/completerewards" element={<CompleteReward />} />
       </Routes>
     </AnimatePresence>

@@ -47,7 +47,8 @@ export const LessonsData = {
       {
         id: 1,
         title: "Learn addition",
-        quizRoute: "/quiz/g1-addition",
+        lessonRoute: "/practice/g1-addition",
+        backRoute: "/subjects/1/Mathematics",
         
         content: [
           {
@@ -83,6 +84,8 @@ export const LessonsData = {
       {
         id: 2,
         title: "Subtraction",
+        lessonRoute: "/practice/g1-subtraction",
+        backRoute: "/subjects/1/Mathematics",
 
         content: [
           {

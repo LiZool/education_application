@@ -22,7 +22,7 @@ export default function SubjectLessons() {
 
         {/* Back Button */}
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate(`/subjects/${gradeId}`)}
           className="
             absolute left-0
             bg-white

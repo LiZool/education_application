@@ -11,7 +11,8 @@ export default function CompleteReward() {
 
   const {
     score = 0,
-    maxQuestions = 10
+    maxQuestions = 10,
+    replayRoute = "/practice/g1-addition"
   } = location.state || {};
 
   const [showUnlock, setShowUnlock] = useState(false);
@@ -245,7 +246,7 @@ export default function CompleteReward() {
         <div className="flex flex-col gap-4">
 
           <button
-            onClick={() => navigate("/quiz/g1-addition")}
+            onClick={() => navigate(replayRoute)}
             className="
               bg-yellow-400
               hover:bg-yellow-300
@@ -263,7 +264,11 @@ export default function CompleteReward() {
           </button>
 
           <button
-            onClick={() => navigate("/subjects/1/Mathematics")}
+            onClick={() =>
+              navigate("/subjects/1/Mathematics", {
+                replace: true
+              })
+            }
             className="
               bg-blue-500
               hover:bg-blue-400

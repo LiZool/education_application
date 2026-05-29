@@ -1,9 +1,9 @@
-// src/pages/games/G1SubtractionQuiz.jsx
+// src/pages/games/G1AdditionQuiz.jsx
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function G1SubtractionQuiz() {
+export default function G1AdditionQuiz() {
     const navigate = useNavigate();
 
     const maxQuestions = 10;
@@ -84,15 +84,16 @@ export default function G1SubtractionQuiz() {
         if (count >= maxQuestions) {
 
             localStorage.setItem(
-                "g1SubtractionScore",
+                "g1AdditionScore",
                 score
             );
 
             navigate("/completerewards", {
-                state: {
-                    score,
-                    maxQuestions
-                }
+            state: {
+                score,
+                maxQuestions,
+                replayRoute: "/practice/g1-addition"
+            }
             });
 
             return;
@@ -115,7 +116,7 @@ export default function G1SubtractionQuiz() {
         <>
 
             <p className="text-2xl font-bold mb-3">
-                Subtraction {count + 1} / {maxQuestions}
+                Addition {count + 1} / {maxQuestions}
             </p>
 
             {/* Progress Bar */}
@@ -145,11 +146,7 @@ export default function G1SubtractionQuiz() {
                 shadow-inner
             ">
                 <h1 className="text-6xl font-extrabold text-white">
-                    <span className="text-yellow-300">{question.num1}</span>
-
-                    <span className="mx-4 text-white">-</span>
-
-                    <span className="text-pink-300">{question.num2}</span>
+                    {question.num1} + {question.num2}
                 </h1>
             </div>
 
@@ -254,7 +251,6 @@ export default function G1SubtractionQuiz() {
 
             </div>
 
-            {/* BUTTON OUTSIDE CARD */}
             <button
                 onClick={nextQuestion}
                 className={`
