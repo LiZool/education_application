@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function G1SubtractionQuiz() {
+export default function G1SubtractionPractice() {
     const navigate = useNavigate();
 
     const maxQuestions = 10;

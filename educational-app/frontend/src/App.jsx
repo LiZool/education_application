@@ -18,8 +18,11 @@ import SubjectLessons from "./pages/SubjectLessons"
 import LessonContent from './pages/LessonContent'
 import Quiz from "./pages/Quiz";
   // Lessons
-  import G1AdditionLesson from "./pages/lessons/maths/year1/g1AdditionLesson";
-  import G1SubtractionLesson from "./pages/lessons/maths/year1/g1SubtractionLesson";
+    // English //
+    import G1AdditionLesson from "./pages/lessons/maths/year1/g1AdditionLesson";
+    import G1SubtractionLesson from "./pages/lessons/maths/year1/g1SubtractionLesson";
+    // Maths //
+    import G1GrammarNounLesson from "./pages/lessons/english/year1/g1GrammarNounLesson";
 import CompleteReward from "./pages/CompleteReward";
 
 function AnimatedRoutes() {
@@ -36,7 +39,10 @@ function AnimatedRoutes() {
         <Route path="/subjects/:gradeId" element={<Subjects />} />
         <Route path="/subjects/:gradeId/:subjectName" element={<SubjectLessons />} />
         <Route path="/lesson/:gradeId/:subjectName/:lessonId" element={<LessonContent />} />
+          /**** Maths ****/
           <Route path="/practice/g1-addition" element={<G1AdditionLesson />} />
+          <Route path="/practice/g1-subtraction" element={<G1SubtractionLesson />} />
+          /**** English ****/
           <Route path="/practice/g1-subtraction" element={<G1SubtractionLesson />} />
         <Route path="/completerewards" element={<CompleteReward />} />
       </Routes>

@@ -6,12 +6,13 @@ export const LessonsData = {
     English: [
       {
         id: 1,
-        title: "Sentence Structure",
+        title: "Nouns",
+        lessonRoute: "/practice/g1-grammarnouns",
 
         content: [
           {
             type: "text",
-            value: "The alphabet has 26 letters."
+            value: "Nouns are the names of things around us"
           },
 
           {
@@ -21,7 +22,7 @@ export const LessonsData = {
 
           {
             type: "text",
-            value: "A is for Apple."
+            value: "Example: cars, animals, phones"
           }
         ],
 
