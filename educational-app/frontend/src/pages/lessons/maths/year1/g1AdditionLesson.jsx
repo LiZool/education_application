@@ -1,9 +1,9 @@
-// src/pages/games/G1AdditionQuiz.jsx
+// src/pages/games/G1AdditionLesson.jsx
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function G1AdditionQuiz() {
+export default function G1AdditionLesson() {
     const navigate = useNavigate();
 
     const maxQuestions = 10;

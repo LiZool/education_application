@@ -1,4 +1,5 @@
 // src/data/LessonsData.js
+
 import AdditionImg from "../assets/images/grades/addition/What-Is-Addition-1.png";
 
 export const LessonsData = {
@@ -7,7 +8,7 @@ export const LessonsData = {
       {
         id: 1,
         title: "Nouns",
-        lessonRoute: "/practice/g1-grammarnouns",
+        lessonRoute: "/practice/g1-enggrammarnouns",
 
         content: [
           {

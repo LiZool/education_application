@@ -18,11 +18,11 @@ import SubjectLessons from "./pages/SubjectLessons"
 import LessonContent from './pages/LessonContent'
 import Quiz from "./pages/Quiz";
   // Lessons
-    // English //
+    // Maths //
     import G1AdditionLesson from "./pages/lessons/maths/year1/g1AdditionLesson";
     import G1SubtractionLesson from "./pages/lessons/maths/year1/g1SubtractionLesson";
-    // Maths //
-    import G1GrammarNounLesson from "./pages/lessons/english/year1/g1GrammarNounLesson";
+    // English //
+    import G1EngGrammarNounLesson from "./pages/lessons/english/year1/g1EngGrammarNounLesson";
 import CompleteReward from "./pages/CompleteReward";
 
 function AnimatedRoutes() {
@@ -43,7 +43,7 @@ function AnimatedRoutes() {
           <Route path="/practice/g1-addition" element={<G1AdditionLesson />} />
           <Route path="/practice/g1-subtraction" element={<G1SubtractionLesson />} />
           /**** English ****/
-          <Route path="/practice/g1-subtraction" element={<G1SubtractionLesson />} />
+          <Route path="/practice/g1-enggrammarnouns" element={<G1EngGrammarNounLesson />} />
         <Route path="/completerewards" element={<CompleteReward />} />
       </Routes>
     </AnimatePresence>
