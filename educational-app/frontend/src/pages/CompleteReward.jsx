@@ -10,9 +10,12 @@ export default function CompleteReward() {
   const location = useLocation();
 
   const {
-    score = 0,
-    maxQuestions = 10,
-    replayRoute = "/practice/g1-addition"
+      score = 0,
+      maxQuestions = 10,
+      replayRoute = "/practice/g1-addition",
+      backRoute = "/subjects/1/Mathematics",
+      subject = "",
+      lesson = ""
   } = location.state || {};
 
   const [showUnlock, setShowUnlock] = useState(false);
@@ -117,6 +120,10 @@ export default function CompleteReward() {
         <h1 className="text-5xl font-extrabold text-gray-800 mb-2">
           Congratulations!
         </h1>
+
+        <p className="text-xl font-bold text-gray-500 mb-4">
+            {lesson} • {subject}
+        </p>
 
         {/* Message */}
         <p className="text-2xl font-bold text-gray-500 mb-4">
@@ -264,11 +271,7 @@ export default function CompleteReward() {
           </button>
 
           <button
-            onClick={() =>
-              navigate("/subjects/1/Mathematics", {
-                replace: true
-              })
-            }
+            onClick={() => navigate(backRoute, { replace: true })}
             className="
               bg-blue-500
               hover:bg-blue-400

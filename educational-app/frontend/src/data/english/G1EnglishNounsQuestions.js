@@ -1,9 +1,13 @@
 // src/data/english/G1EnglishNounsQuestions.js
-import imgCat from "../../assets/images/grades/y1/english/cat.png"
+import imgCat from "../../assets/images/grades/y1/english/cat.png"  // https://pngtree.com/element/down?id=MjA3NTA3Mjc=&type=1&time=1780543677&token=NWVlOTYxZmU2ZmQwOTE3YjBlNjFlODQzNjIzZTExOWM=&t=0
 import imgBread from "../../assets/images/grades/y1/english/bread.png"
 import imgFast from "../../assets/images/grades/y1/english/run.png"
 import imgSleep from "../../assets/images/grades/y1/english/sleep.png"
-
+import imgSheep from "../../assets/images/grades/y1/english/sheep.png"  // https://www.cleanpng.com/png-fluffy-white-sheep-cartoon-stycm9/download-png.html
+import imgTractor from "../../assets/images/grades/y1/english/tractor.png"  // https://pngtree.com/element/down?id=NzIyMjQwNw==&type=1&time=1780961314&token=N2VmMWQzMzdiMDAwM2VkM2RlODRiZDJjOTFjM2U2MDM=&t=0
+import imgJump from "../../assets/images/grades/y1/english/jump.png"  // https://pngtree.com/freepng/counting-sheep-jumping-over-a-fence_20532098.html
+import imgPlay from "../../assets/images/grades/y1/english/play.png"  // https://pngtree.com/element/down?id=ODYyNTIzMQ==&type=1&time=1780975806&token=YTIyNzM5MmQ2Y2MxNDE5ZGRjZTY2NGE2ZWI2NWIwYjI=&t=0
+import imgFarmer from "../../assets/images/grades/y1/english/farmer.png"  // https://www.magnific.com/free-vector/young-farmer-holding-rice-harvest_78238728.htm#fromView=keyword&page=1&position=2&uuid=e324e10d-cb92-4f48-81cb-d2e689d8929b&query=Farmer+png
 
 export const G1EnglishNounsQuestions = [
     {
@@ -16,15 +20,15 @@ export const G1EnglishNounsQuestions = [
             },
             {
                 text: "cat",
-                image: imgCat  // https://pngtree.com/element/down?id=MjA3NTA3Mjc=&type=1&time=1780543677&token=NWVlOTYxZmU2ZmQwOTE3YjBlNjFlODQzNjIzZTExOWM=&t=0
+                image: imgCat  
             },
             {
                 text: "jump",
-                image: "/images/english/jump.png"
+                image: imgJump
             },
             {
-                text: "leap",
-                image: "/images/english/leap.png"
+                text: "play",
+                image: imgPlay
             }
         ],
 
@@ -66,7 +70,7 @@ export const G1EnglishNounsQuestions = [
         G1NounGrammarOptions: [
             {
                 text: "farmer",
-                image: imgBread
+                image: imgFarmer
             },
             {
                 text: "grow",
@@ -147,12 +151,14 @@ export const G1EnglishNounsQuestions = [
         G1NounGrammarOptions: [
             {
                 text: "sheep",
-                image: "/images/english/eat.png"  // https://www.cleanpng.com/png-cute-chubby-sheep-cartoon-6x4dyd/download-png.html
+                image: imgSheep  
             },
+
             {
                 text: "sleep",
                 image: imgSleep  // https://www.cleanpng.com/png-sleeping-lamb-cartoon-3o2urg/download-png.html?__cf_chl_tk=KVBKcMN5PrA.Gul83B1g6FPcUnr48agZwy7hCHEXABA-1780814652-1.0.1.1-BVIbEguy256LO63uDWV_E2uxO2JBYaABkg.NQkDk7Gw
             },
+
             {
                 text: "beat",
                 image: "/images/english/cook.png"
@@ -163,7 +169,7 @@ export const G1EnglishNounsQuestions = [
             }
         ],
 
-        G1NounGrammarAnswers: "chicken",
+        G1NounGrammarAnswers: "sheep",
 
         image: "/images/grades/y1/english/bread.png"
     },
@@ -186,7 +192,7 @@ export const G1EnglishNounsQuestions = [
             },
             {
                 text: "tractor",
-                image: imgBread
+                image: imgTractor
             }
         ],
 

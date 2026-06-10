@@ -5,31 +5,261 @@ import AdditionImg from "../assets/images/grades/addition/What-Is-Addition-1.png
 export const LessonsData = {
   1: {
     English: [
-      {
-        id: 1,
-        title: "Nouns",
-        lessonRoute: "/practice/g1-enggrammarnouns",
+    {
+      unitId: 1,
+      unitTitle: "Nouns",
 
-        content: [
-          {
-            type: "text",
-            value: "Nouns are the names of things around us"
-          },
+      lessons: [
+        {
+          id: 1,
+          title: "What are nouns?",
+          subtitle: "Learn what nouns are",
+          lessonRoute: "/practice/g1-enggrammarnouns",
 
-          {
-            type: "image",
-            value: "/images/childrenbook.png"
-          },
+          content: [
+            {
+              type: "text",
+              value: "Nouns are the names of things around us. Nouns that are used to name general things are called 'common nouns'"
+            },
 
-          {
-            type: "text",
-            value: "Example: cars, animals, phones"
-          }
-        ],
+            {
+              type: "image",
+              value: "/images/childrenbook.png"
+            },
 
-        quizId: "english-g1-alphabet"
-      }
-    ],
+            {
+              type: "text",
+              value: "Example: cars, rabbit, ship"
+            }
+          ],
+
+          quizId: "english-g1-alphabet"
+        },
+
+        {
+          id: 2,
+          title: "Common Nouns",
+          subtitle: "Identify common nouns",
+          lessonRoute: "/practice/g1-enggrammarnouns",
+
+          content: [
+            {
+              type: "text",
+              value: "Common nouns are general names for things."
+            },
+
+            {
+              type: "image",
+              value: "/images/childrenbook.png"
+            },
+
+            {
+              type: "text",
+              value: "Example: cars, animals, phones"
+            }
+          ],
+
+          quizId: "english-g1-alphabet"
+        },
+
+        {
+          id: 3,
+          title: "Proper Nouns",
+          subtitle: "Identify common nouns",
+          lessonRoute: "/practice/g1-enggrammarnouns",
+
+          content: [
+            {
+              type: "text",
+              value: "Common nouns are general names for things."
+            },
+
+            {
+              type: "image",
+              value: "/images/childrenbook.png"
+            },
+
+            {
+              type: "text",
+              value: "Example: cars, animals, phones"
+            }
+          ],
+
+          quizId: "english-g1-alphabet"
+        }
+      ]
+    },
+
+    {
+      unitId: 2,
+      unitTitle: "Verbs",
+
+      lessons: [
+        {
+          id: 1,
+          title: "What are nouns?",
+          subtitle: "Learn what nouns are",
+          lessonRoute: "/practice/g1-enggrammarnouns",
+
+          content: [
+            {
+              type: "text",
+              value: "Nouns are the names of things around us. Nouns that are used to name general things are called 'common nouns'"
+            },
+
+            {
+              type: "image",
+              value: "/images/childrenbook.png"
+            },
+
+            {
+              type: "text",
+              value: "Example: cars, rabbit, ship"
+            }
+          ],
+
+          quizId: "english-g1-alphabet"
+        },
+
+        {
+          id: 2,
+          title: "Common Nouns",
+          subtitle: "Identify common nouns",
+          lessonRoute: "/practice/g1-enggrammarnouns",
+
+          content: [
+            {
+              type: "text",
+              value: "Common nouns are general names for things."
+            },
+
+            {
+              type: "image",
+              value: "/images/childrenbook.png"
+            },
+
+            {
+              type: "text",
+              value: "Example: cars, animals, phones"
+            }
+          ],
+
+          quizId: "english-g1-alphabet"
+        },
+
+        {
+          id: 3,
+          title: "Proper Nouns",
+          subtitle: "Identify common nouns",
+          lessonRoute: "/practice/g1-enggrammarnouns",
+
+          content: [
+            {
+              type: "text",
+              value: "Common nouns are general names for things."
+            },
+
+            {
+              type: "image",
+              value: "/images/childrenbook.png"
+            },
+
+            {
+              type: "text",
+              value: "Example: cars, animals, phones"
+            }
+          ],
+
+          quizId: "english-g1-alphabet"
+        }
+      ]
+    },
+
+    {
+      unitId: 3,
+      unitTitle: "Adjectives",
+
+      lessons: [
+        {
+          id: 1,
+          title: "What are nouns?",
+          subtitle: "Learn what nouns are",
+          lessonRoute: "/practice/g1-enggrammarnouns",
+
+          content: [
+            {
+              type: "text",
+              value: "Nouns are the names of things around us. Nouns that are used to name general things are called 'common nouns'"
+            },
+
+            {
+              type: "image",
+              value: "/images/childrenbook.png"
+            },
+
+            {
+              type: "text",
+              value: "Example: cars, rabbit, ship"
+            }
+          ],
+
+          quizId: "english-g1-alphabet"
+        },
+
+        {
+          id: 2,
+          title: "Common Nouns",
+          subtitle: "Identify common nouns",
+          lessonRoute: "/practice/g1-enggrammarnouns",
+
+          content: [
+            {
+              type: "text",
+              value: "Common nouns are general names for things."
+            },
+
+            {
+              type: "image",
+              value: "/images/childrenbook.png"
+            },
+
+            {
+              type: "text",
+              value: "Example: cars, animals, phones"
+            }
+          ],
+
+          quizId: "english-g1-alphabet"
+        },
+
+        {
+          id: 3,
+          title: "Proper Nouns",
+          subtitle: "Identify common nouns",
+          lessonRoute: "/practice/g1-enggrammarnouns",
+
+          content: [
+            {
+              type: "text",
+              value: "Common nouns are general names for things."
+            },
+
+            {
+              type: "image",
+              value: "/images/childrenbook.png"
+            },
+
+            {
+              type: "text",
+              value: "Example: cars, animals, phones"
+            }
+          ],
+
+          quizId: "english-g1-alphabet"
+        }
+      ]
+    }
+  ],
 
     Malay: [
       {

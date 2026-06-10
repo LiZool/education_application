@@ -4,6 +4,7 @@
 import IconSubjectEnglishG1 from "../assets/images/icons/Subjects/IconSubjectEnglish.png"
 import IconSubjectMalayG1  from "../assets/images/icons/Subjects/IconSubjectMalay.png"
 import IconSubjectMathsG1  from "../assets/images/icons/Subjects/IconSubjectMaths.png"
+import IconSubjectScienceG1  from "../assets/images/icons/Subjects/IconSubjectScience.png"
 
 /* Images - Icons, Grade 2 */
 import IconSubjectEnglishG2 from "../assets/images/icons/Subjects/IconSubjectEnglish.png"
@@ -25,6 +26,10 @@ export const SubjectsData = {
     {
       name: "Mathematics",
       icon: IconSubjectMathsG1,
+    },
+    {
+      name: "Science",
+      icon: IconSubjectScienceG1,
     },
   ],
 

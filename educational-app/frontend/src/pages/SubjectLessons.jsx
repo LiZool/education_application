@@ -7,12 +7,32 @@ import { motion } from "framer-motion";
 import { LessonsData } from "../data/LessonsData.js";
 
 export default function SubjectLessons() {
-
   const navigate = useNavigate();
   const { gradeId, subjectName } = useParams();
 
+  // 1. FIRST: get lessons
   const lessons =
-    LessonsData[gradeId]?.[subjectName] || [];
+    (LessonsData[gradeId]?.[subjectName] || [])
+      .flatMap(unit => unit.lessons || []);
+
+  // 2. SECOND: build rows
+  const rows = [];
+
+  let index = 0;
+
+  // Row 1 = 1 lesson
+  rows.push(lessons.slice(index, index + 1));
+  index += 1;
+
+  // Row 2 = 2 lessons
+  rows.push(lessons.slice(index, index + 2));
+  index += 2;
+
+  // Row 3 onwards = 2 lessons each
+  while (index < lessons.length) {
+    rows.push(lessons.slice(index, index + 2));
+    index += 2;
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-400 to-blue-600 p-6">
@@ -50,80 +70,45 @@ export default function SubjectLessons() {
       </div>
 
       {/* LESSON LIST */}
-      <div className="flex flex-col gap-0">
+      {/* LESSON GRID MAP */}
+<div className="flex flex-col items-center gap-10 py-10">
 
-        {lessons.map((lesson, index) => (
+  {rows.map((row, rowIndex) => (
+    <div
+      key={rowIndex}
+      className="flex justify-center gap-10"
+    >
 
-          <motion.div
-            key={lesson.id}
+      {row.map((lesson) => (
+        <motion.button
+          key={lesson.id}
+          onClick={() =>
+            navigate(`/lesson/${gradeId}/${subjectName}/${lesson.id}`)
+          }
+          className="
+            w-28 h-28
+            rounded-full
+            bg-green-500
+            border-b-8 border-green-700
+            text-white font-bold
+            shadow-xl
+            flex items-center justify-center
+            text-center px-2
+          "
+          whileHover={{
+            y: -6,
+            boxShadow: "0 0 25px rgba(255,255,255,0.8)"
+          }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {lesson.title}
+        </motion.button>
+      ))}
 
-            whileHover={{
-              scale: 1.02,
-              y: -2
-            }}
+    </div>
+  ))}
 
-            whileTap={{
-              scale: 0.98
-            }}
-
-            onClick={() =>
-              navigate(
-                `/lesson/${gradeId}/${subjectName}/${lesson.id}`
-              )
-            }
-
-            className={`
-              bg-white
-              shadow-lg
-              px-4 py-3
-              cursor-pointer
-              flex
-              items-center
-              justify-between
-              border-b border-gray-200
-
-              ${index === 0 ? "rounded-t-2xl" : ""}
-              ${index === lessons.length - 1 ? "rounded-b-2xl border-b-0" : ""}
-            `}
-          >
-
-            {/* LEFT */}
-            <div className="flex items-center gap-3">
-
-              {/* Lesson Number */}
-              <div className="
-                w-10 h-10
-                rounded-full
-                bg-yellow-400
-                flex items-center justify-center
-                text-lg
-                font-bold
-                text-white
-              ">
-                {index + 1}
-              </div>
-
-              {/* Lesson Info */}
-              <div>
-                <h2 className="text-lg font-bold text-gray-800">
-                  {lesson.title}
-                </h2>
-
-                <p className="text-sm text-gray-500">
-                  Tap to start
-                </p>
-              </div>
-
-            </div>
-
-            {/* RIGHT ICON */}
-            <div className="text-2xl">
-              📘
-            </div>
-
-          </motion.div>
-        ))}
-      </div>
+</div>
     </div>
   );
 }

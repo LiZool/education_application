@@ -1,6 +1,6 @@
 // src/pages/lessons/english/year1/g1EngGrammarNounLesson.jsx
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { G1EnglishNounsQuestions } from "../../../../data/english/G1EnglishNounsQuestions";
 
@@ -14,6 +14,40 @@ export default function G1EngGrammarNounsLesson() {
 
     const [feedback, setFeedback] = useState(null);
     const [mode, setMode] = useState("question");
+    const [isRestoring, setIsRestoring] = useState(true);
+
+       useEffect(() => {
+            const savedQuestion = localStorage.getItem("g1-nouns-progress");
+            const savedScore = localStorage.getItem("g1-nouns-score");
+
+            if (savedQuestion !== null) {
+                setCurrentQuestion(Number(savedQuestion));
+            }
+
+            if (savedScore !== null) {
+                setScore(Number(savedScore));
+            }
+
+            setIsRestoring(false);
+        }, []);
+
+        useEffect(() => {
+            if (isRestoring) return;
+
+            localStorage.setItem(
+                "g1-nouns-progress",
+                String(currentQuestion)
+            );
+        }, [currentQuestion, isRestoring]);
+
+        useEffect(() => {
+            if (isRestoring) return;
+
+            localStorage.setItem(
+                "g1-nouns-score",
+                String(score)
+            );
+        }, [score, isRestoring]);
 
     const handleAnswer = (selectedOption) => {
         const correctAnswer =
@@ -46,10 +80,31 @@ export default function G1EngGrammarNounsLesson() {
             setFeedback(null);
             setMode("question");
         } else {
-            alert(`You got ${score} out of ${questions.length}`);
-            navigate("/dashboard");
+            localStorage.removeItem("g1-nouns-progress");
+            localStorage.removeItem("g1-nouns-score");
+
+            navigate("/completerewards", {
+                state: {
+                    subject: "English",
+                    lesson: "Nouns",
+                    score,
+                    maxQuestions: questions.length,
+                    replayRoute: "/practice/g1-enggrammarnouns",
+                    backRoute: "/subjects/1/English"
+                }
+            });
         }
     };
+
+    if (isRestoring || questions.length === 0) {
+        return (
+            <div className="min-h-screen flex items-center justify-center bg-blue-600">
+                <p className="text-white text-xl font-bold">
+                    Loading progress...
+                </p>
+            </div>
+        );
+    }
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center p-6">
@@ -142,7 +197,9 @@ export default function G1EngGrammarNounsLesson() {
                             <div
                                 className={`
                                     bg-white
-                                    border-4
+                                    border-x-4
+                                    border-b-4
+                                    rounded-b-3xl
                                     p-5
                                     text-center
                                     ${

@@ -174,14 +174,11 @@ export default function LessonContent() {
               px-8 py-4
               rounded-2xl
               hover:scale-125
-              transition
-            "
-          >
+              transition">
             Start Lesson
           </button>
         </div>
       </div>
-
     </div>
   );
 }
