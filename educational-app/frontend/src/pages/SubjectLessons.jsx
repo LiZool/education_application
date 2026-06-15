@@ -70,45 +70,44 @@ export default function SubjectLessons() {
       </div>
 
       {/* LESSON LIST */}
-      {/* LESSON GRID MAP */}
-<div className="flex flex-col items-center gap-10 py-10">
+      <div className="flex flex-col items-center gap-10 py-10">
 
-  {rows.map((row, rowIndex) => (
-    <div
-      key={rowIndex}
-      className="flex justify-center gap-10"
-    >
+        {rows.map((row, rowIndex) => (
+          <div
+            key={rowIndex}
+            className="flex justify-center gap-10"
+          >
 
-      {row.map((lesson) => (
-        <motion.button
-          key={lesson.id}
-          onClick={() =>
-            navigate(`/lesson/${gradeId}/${subjectName}/${lesson.id}`)
-          }
-          className="
-            w-28 h-28
-            rounded-full
-            bg-green-500
-            border-b-8 border-green-700
-            text-white font-bold
-            shadow-xl
-            flex items-center justify-center
-            text-center px-2
-          "
-          whileHover={{
-            y: -6,
-            boxShadow: "0 0 25px rgba(255,255,255,0.8)"
-          }}
-          whileTap={{ scale: 0.95 }}
-        >
-          {lesson.title}
-        </motion.button>
-      ))}
+            {row.map((lesson) => (
+              <motion.button
+                key={lesson.id}
+                onClick={() =>
+                  navigate(`/lesson/${gradeId}/${subjectName}/${lesson.id}`)
+                }
+                className="
+                  w-28 h-28
+                  rounded-full
+                  bg-green-500
+                  border-b-8 border-green-700
+                  text-white font-bold
+                  shadow-xl
+                  flex items-center justify-center
+                  text-center px-2
+                "
+                whileHover={{
+                  y: -6,
+                  boxShadow: "0 0 25px rgba(255,255,255,0.8)"
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {lesson.title}
+              </motion.button>
+            ))}
 
-    </div>
-  ))}
+          </div>
+        ))}
 
-</div>
+      </div>
     </div>
   );
 }
