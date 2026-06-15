@@ -91,12 +91,33 @@ function NavItem({ icon, hoverIcon, label, to }) {
 
 export default function Navbar() {
   return (
-    <div className="fixed bottom-0 left-0 w-full z-50">
-      <div className="bg-white/40 backdrop-blur-md flex justify-around items-center py-4">
-        <NavItem icon={IconHome} hoverIcon={IconHomeHover} label="Home" to="/home" />
-        <NavItem icon={IconLesson} hoverIcon={IconLessonHover} label="Lessons" to="/subjects" />
-        <NavItem icon={IconActivity} hoverIcon={IconActivityHover} label="Progress" />
-        <NavItem icon={IconAchievement} hoverIcon={IconAchievementHover} label="Awards" />
+    <div className="fixed bottom-0 left-0 w-full z-50 bg-yellow-300 border-t-4 border-yellow-500 shadow-lg">
+      <div className="flex justify-around items-center py-4">
+        <NavItem
+          icon={IconHome}
+          hoverIcon={IconHomeHover}
+          label="Home"
+          to="/home"
+        />
+
+        <NavItem
+          icon={IconLesson}
+          hoverIcon={IconLessonHover}
+          label="Lessons"
+          to="/subjects"
+        />
+
+        <NavItem
+          icon={IconActivity}
+          hoverIcon={IconActivityHover}
+          label="Progress"
+        />
+
+        <NavItem
+          icon={IconAchievement}
+          hoverIcon={IconAchievementHover}
+          label="Awards"
+        />
       </div>
     </div>
   );
