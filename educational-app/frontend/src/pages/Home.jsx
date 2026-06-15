@@ -4,6 +4,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Navbar from "../components/NavBar";
+import TopNavbar from "../components/TopNavbar";
 
 /* Images - Grades */
 import StarterFarmImg from "../assets/images/grades/png-bzcku_monkey.png";
@@ -32,6 +33,9 @@ export default function Home() {
 
   return (
    <div className="min-h-screen bg-gradient-to-b from-blue-400 to-blue-600 flex flex-col items-center px-6 py-12">
+      
+      <TopNavbar />
+      
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

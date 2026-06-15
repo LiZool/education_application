@@ -91,8 +91,8 @@ function NavItem({ icon, hoverIcon, label, to }) {
 
 export default function Navbar() {
   return (
-    <div className="fixed bottom-4 left-1/2 -translate-x-1/2 w-[90%] max-w-[600px]">
-      <div className="bg-white/40 backdrop-blur-md rounded-2xl flex justify-center items-center gap-16 py-4">
+    <div className="fixed bottom-0 left-0 w-full z-50">
+      <div className="bg-white/40 backdrop-blur-md flex justify-around items-center py-4">
         <NavItem icon={IconHome} hoverIcon={IconHomeHover} label="Home" to="/home" />
         <NavItem icon={IconLesson} hoverIcon={IconLessonHover} label="Lessons" to="/subjects" />
         <NavItem icon={IconActivity} hoverIcon={IconActivityHover} label="Progress" />
