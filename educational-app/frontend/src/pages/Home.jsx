@@ -33,8 +33,7 @@ export default function Home() {
 
   return (
    <div className="min-h-screen bg-gradient-to-b from-blue-400 to-blue-600 flex flex-col items-center px-6 pt-24 pb-24">
-      
-      <TopNavbar />
+        <TopNavbar />
         {/****  Title ****/}
         <motion.h1
           initial={{ opacity: 0, y: -20 }}

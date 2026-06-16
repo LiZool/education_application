@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/NavBar";
+import TopNavbar from "../components/TopNavbar";
+
 import { LessonsData } from "../data/LessonsData.js";
 import { SubjectsData } from "../data/SubjectsData";
 
@@ -180,7 +182,7 @@ function LessonCard({ subject, index, gradeId }) {
 
       <img
         src={subject.icon}
-        className="w-[80%] mx-auto mb-2 object-contain transition-transform duration-200 group-hover:scale-110"
+        className="w-[70%] mx-auto mb-2 object-contain transition-transform duration-200 group-hover:scale-110"
       />
 
       <div className="w-3/4 h-2 bg-gray-200 rounded-full mt-3 overflow-hidden">
@@ -227,20 +229,10 @@ export default function Lesson() {
   
   return (
     <div className="min-h-screen bg-blue-500 flex flex-col">
-
-      <div className="w-full px-6 py-4 flex justify-between items-center bg-blue-600 text-white">
-        <div>
-          <p className="text-sm opacity-80">Welcome back</p>
-          <h2 className="font-bold text-lg">User Name</h2>
-        </div>
-
-        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center text-blue-500 font-bold">
-          U
-        </div>
-      </div>
+      <TopNavbar />
 
       {/* MAIN CONTENT */}
-      <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 px-6 content-start">
+      <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-8 pt-24 px-6 content-start">
                       {/* flex-1 grid grid-cols-2 gap-3 pt-2 px-4 justify-items-center */}
          {subjects.map((subject, index) => (
             <LessonCard

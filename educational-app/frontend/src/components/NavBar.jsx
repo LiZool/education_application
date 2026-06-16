@@ -4,13 +4,15 @@ import { useNavigate } from "react-router-dom";
 
 /* Images Navbar - Icons */
 import IconHome from "../assets/images/icons/IconHome.png"
-import IconHomeHover from "../assets/images/icons/IconHomeHover.png"
+import IconHomeHover from "../assets/images/icons/IconHomeHover1.png"
 import IconLesson from "../assets/images/icons/IconLesson.png"
-import IconLessonHover from "../assets/images/icons/IconLessonHover.png"
+import IconLessonHover from "../assets/images/icons/IconLessonHover1.png"
 import IconAchievement from "../assets/images/icons/IconAchievements.png"
-import IconAchievementHover from "../assets/images/icons/IconAchievementsHover.png"
+import IconAchievementHover from "../assets/images/icons/IconAchievementsHover1.png"
 import IconActivity from "../assets/images/icons/IconActivity.png"
-import IconActivityHover from "../assets/images/icons/IconActivityHover.png"
+import IconActivityHover from "../assets/images/icons/IconActivityHover1.png"
+import IconUser from "../assets/images/icons/IconUser.png"
+import IconUserHover from "../assets/images/icons/IconUserHover.png"  // https://www.vecteezy.com/vector-art/5544718-profile-icon-design-vector
 
 /* Sfx  */
 import WooshHoversfx from "../assets/sfx/sfxwoosh2.mp3"
@@ -92,6 +94,7 @@ function NavItem({ icon, hoverIcon, label, to }) {
 export default function Navbar() {
   return (
     <div className="fixed bottom-0 left-0 w-full z-50 bg-yellow-300 border-t-4 border-yellow-500 shadow-lg">
+      {/* <div className="fixed bottom-0 left-0 w-full z-50 bg-green-300 border-t-4 border-yellow-500 shadow-lg"> */}
       <div className="flex justify-around items-center py-4">
         <NavItem
           icon={IconHome}
@@ -120,8 +123,8 @@ export default function Navbar() {
         />
 
         <NavItem
-          icon={IconAchievement}
-          hoverIcon={IconAchievementHover}
+          icon={IconUser}
+          hoverIcon={IconUserHover}
           label="Profile"
         />
       </div>

@@ -1,9 +1,24 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 
 export default function TopNavbar() {
+  
+  const navigate = useNavigate();
+
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-yellow-300 border-b-4 border-yellow-500 shadow-lg">
       <div className="flex justify-between items-center px-6 py-4">
+
+        {/* Back Button */}
+        <motion.button
+          onClick={() => navigate(-1)}
+          whileHover={{ scale: 1.2, x: -3 }}
+          whileTap={{ scale: 0.9 }}
+          className="text-3xl"
+        >
+          ⬅️
+        </motion.button>
 
         <div className="flex items-center gap-2 font-bold text-lg">
           <span>❤️</span>
