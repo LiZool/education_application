@@ -118,6 +118,12 @@ export default function Navbar() {
           hoverIcon={IconAchievementHover}
           label="Awards"
         />
+
+        <NavItem
+          icon={IconAchievement}
+          hoverIcon={IconAchievementHover}
+          label="Profile"
+        />
       </div>
     </div>
   );
