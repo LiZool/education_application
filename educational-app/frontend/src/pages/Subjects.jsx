@@ -217,7 +217,6 @@ export default function Lesson() {
         window.removeEventListener("pointerdown", unlock);
       };
 
-      // trigger on ANY early interaction
       window.addEventListener("pointermove", unlock);
       window.addEventListener("pointerdown", unlock);
 
@@ -232,7 +231,7 @@ export default function Lesson() {
       <TopNavbar />
 
       {/* MAIN CONTENT */}
-      <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-8 pt-24 px-6 content-start">
+      <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-8 pt-32 px-6 content-start">
                       {/* flex-1 grid grid-cols-2 gap-3 pt-2 px-4 justify-items-center */}
          {subjects.map((subject, index) => (
             <LessonCard

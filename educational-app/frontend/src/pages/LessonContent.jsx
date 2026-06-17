@@ -62,7 +62,6 @@ export default function LessonContent() {
       <div className="bg-white text-black rounded-2xl p-6 shadow-lg">
         <div className="space-y-4">
           {lesson.content.map((item, index) => {
-
             if (item.type === "text") {
               return (
                <p

@@ -3,6 +3,8 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import TopNavbar from "../components/TopNavbar";
+import Navbar from "../components/NavBar";
 
 import { LessonsData } from "../data/LessonsData.js";
 
@@ -28,35 +30,18 @@ export default function SubjectLessons() {
   rows.push(lessons.slice(index, index + 2));
   index += 2;
 
-  // Row 3 onwards = 2 lessons each
+  // Row 3 = 2 lessons each
   while (index < lessons.length) {
     rows.push(lessons.slice(index, index + 2));
     index += 2;
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-sky-400 to-blue-600 p-6">
-
+    <div className="min-h-screen bg-gradient-to-b from-sky-400 to-blue-600 pt-24 pb-24 p-6">
+      <TopNavbar />
+      
       {/* TOP HEADER */}
       <div className="relative flex items-center justify-center mb-8">
-
-        {/* Back Button */}
-        <button
-          onClick={() => navigate(`/subjects/${gradeId}`)}
-          className="
-            absolute left-0
-            bg-white
-            text-black
-            px-4 py-2
-            rounded-xl
-            shadow-md
-            hover:scale-105
-            transition
-          "
-        >
-          ← Back
-        </button>
-
         {/* Subject Title */}
         <div className="text-center">
           <h1 className="text-4xl font-extrabold text-white">
@@ -106,6 +91,7 @@ export default function SubjectLessons() {
 
           </div>
         ))}
+        <Navbar />
 
       </div>
     </div>

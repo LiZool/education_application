@@ -1,6 +1,10 @@
+// src/assets/components/TopNavbar.jsx
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+
+import IconBtnBack from "../assets/images/icons/IconBtnBack.png"  //https://www.pngaaa.com/detail/5656797
 
 export default function TopNavbar() {
   
@@ -15,9 +19,12 @@ export default function TopNavbar() {
           onClick={() => navigate(-1)}
           whileHover={{ scale: 1.2, x: -3 }}
           whileTap={{ scale: 0.9 }}
-          className="text-3xl"
         >
-          ⬅️
+          <img
+            src={IconBtnBack}
+            alt="Back"
+            className="w-10 h-10"
+          />
         </motion.button>
 
         <div className="flex items-center gap-2 font-bold text-lg">
