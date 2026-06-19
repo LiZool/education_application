@@ -43,7 +43,7 @@ function AnimatedRoutes() {
           <Route path="/practice/g1-addition" element={<G1AdditionLesson />} />
           <Route path="/practice/g1-subtraction" element={<G1SubtractionLesson />} />
           /**** English ****/
-          <Route path="/practice/g1-enggrammarnouns" element={<G1EngGrammarNounLesson />} />
+          <Route path="/practice/g1-nouns-1" element={<G1EngGrammarNounLesson />} />
         <Route path="/completerewards" element={<CompleteReward />} />
       </Routes>
     </AnimatePresence>

@@ -90,7 +90,7 @@ export default function G1EngGrammarNounsLesson() {
                     lesson: "Nouns",
                     score,
                     maxQuestions: questions.length,
-                    replayRoute: "/practice/g1-enggrammarnouns",
+                    replayRoute: "/practice/g1-nouns-1",
                     backRoute: "/subjects/1/English"
                 }
             });

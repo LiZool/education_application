@@ -6,7 +6,6 @@ import { LessonsData } from "../data/LessonsData.js";
 
 export default function LessonContent() {
   const navigate = useNavigate();
-  const gradeTheme = LessonsData[gradeId]?.theme;
 
   const {
     gradeId,
@@ -14,11 +13,16 @@ export default function LessonContent() {
     lessonId
   } = useParams();
 
+  const numericGradeId = Number(gradeId);
+
+  const gradeTheme = LessonsData[gradeId]?.theme;
+
   // Find selected lesson
   const lesson =
-    LessonsData[gradeId]?.[subjectName]?.find(
-      (l) => l.id === Number(lessonId)
-    );
+    LessonsData[numericGradeId]
+      ?.subjects?.[subjectName]
+      ?.units.flatMap((unit) => unit.lessons)
+      .find((l) => l.id === Number(lessonId));
 
   // If lesson doesn't exist
   if (!lesson) {

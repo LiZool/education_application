@@ -253,7 +253,7 @@ export default function CompleteReward() {
         <div className="flex flex-col gap-4">
 
           <button
-            onClick={() => navigate(replayRoute)}
+            onClick={() => navigate(replayRoute, { replace: true })}
             className="
               bg-yellow-400
               hover:bg-yellow-300
