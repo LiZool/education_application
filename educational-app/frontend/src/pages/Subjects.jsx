@@ -203,6 +203,9 @@ function LessonCard({ subject, index, gradeId }) {
 export default function Lesson() {
     const { gradeId } = useParams();
 
+    // Retrieves themes for grades from LessonData.js
+    const gradeTheme = LessonsData[gradeId]?.theme;
+
     const subjects = SubjectsData[gradeId] || [];
 
     React.useEffect(() => {
@@ -227,7 +230,12 @@ export default function Lesson() {
     }, []);
   
   return (
-    <div className="min-h-screen bg-blue-500 flex flex-col">
+    <div
+        className={`min-h-screen flex flex-col bg-cover bg-center ${gradeTheme?.bgColor}`}
+        style={{
+          backgroundImage: `url(${gradeTheme?.bgImage})`,
+        }}
+      >
       <TopNavbar />
 
       {/* MAIN CONTENT */}

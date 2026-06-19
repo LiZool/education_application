@@ -1,373 +1,113 @@
 // src/data/LessonsData.js
 
+// Year Backgrounds 
+import BGYear1 from "../assets/images/grades/background/BGYear1.png"
+
+// Images
 import AdditionImg from "../assets/images/grades/addition/What-Is-Addition-1.png";
 
 export const LessonsData = {
   1: {
-    English: [
-    {
-      unitId: 1,
-      unitTitle: "Nouns",
-
-      lessons: [
-        {
-          id: 1,
-          title: "What are nouns?",
-          subtitle: "Learn what nouns are",
-          lessonRoute: "/practice/g1-enggrammarnouns",
-
-          content: [
-            {
-              type: "text",
-              value: "Nouns are the names of things around us. Nouns that are used to name general things are called 'common nouns'"
-            },
-
-            {
-              type: "image",
-              value: "/images/childrenbook.png"
-            },
-
-            {
-              type: "text",
-              value: "Example: cars, rabbit, ship"
-            }
-          ],
-
-          quizId: "english-g1-alphabet"
-        },
-
-        {
-          id: 2,
-          title: "Common Nouns",
-          subtitle: "Identify common nouns",
-          lessonRoute: "/practice/g1-enggrammarnouns",
-
-          content: [
-            {
-              type: "text",
-              value: "Common nouns are general names for things."
-            },
-
-            {
-              type: "image",
-              value: "/images/childrenbook.png"
-            },
-
-            {
-              type: "text",
-              value: "Example: cars, animals, phones"
-            }
-          ],
-
-          quizId: "english-g1-alphabet"
-        },
-
-        {
-          id: 3,
-          title: "Proper Nouns",
-          subtitle: "Identify common nouns",
-          lessonRoute: "/practice/g1-enggrammarnouns",
-
-          content: [
-            {
-              type: "text",
-              value: "Common nouns are general names for things."
-            },
-
-            {
-              type: "image",
-              value: "/images/childrenbook.png"
-            },
-
-            {
-              type: "text",
-              value: "Example: cars, animals, phones"
-            }
-          ],
-
-          quizId: "english-g1-alphabet"
-        }
-      ]
+    theme: {
+      bgColor: "bg-blue-500",
+      bgImage: BGYear1,
     },
 
-    {
-      unitId: 2,
-      unitTitle: "Verbs",
-
-      lessons: [
-        {
-          id: 1,
-          title: "What are nouns?",
-          subtitle: "Learn what nouns are",
-          lessonRoute: "/practice/g1-enggrammarnouns",
-
-          content: [
-            {
-              type: "text",
-              value: "Nouns are the names of things around us. Nouns that are used to name general things are called 'common nouns'"
-            },
-
-            {
-              type: "image",
-              value: "/images/childrenbook.png"
-            },
-
-            {
-              type: "text",
-              value: "Example: cars, rabbit, ship"
-            }
-          ],
-
-          quizId: "english-g1-alphabet"
-        },
-
-        {
-          id: 2,
-          title: "Common Nouns",
-          subtitle: "Identify common nouns",
-          lessonRoute: "/practice/g1-enggrammarnouns",
-
-          content: [
-            {
-              type: "text",
-              value: "Common nouns are general names for things."
-            },
-
-            {
-              type: "image",
-              value: "/images/childrenbook.png"
-            },
-
-            {
-              type: "text",
-              value: "Example: cars, animals, phones"
-            }
-          ],
-
-          quizId: "english-g1-alphabet"
-        },
-
-        {
-          id: 3,
-          title: "Proper Nouns",
-          subtitle: "Identify common nouns",
-          lessonRoute: "/practice/g1-enggrammarnouns",
-
-          content: [
-            {
-              type: "text",
-              value: "Common nouns are general names for things."
-            },
-
-            {
-              type: "image",
-              value: "/images/childrenbook.png"
-            },
-
-            {
-              type: "text",
-              value: "Example: cars, animals, phones"
-            }
-          ],
-
-          quizId: "english-g1-alphabet"
-        }
-      ]
-    },
-
-    {
-      unitId: 3,
-      unitTitle: "Adjectives",
-
-      lessons: [
-        {
-          id: 1,
-          title: "What are nouns?",
-          subtitle: "Learn what nouns are",
-          lessonRoute: "/practice/g1-enggrammarnouns",
-
-          content: [
-            {
-              type: "text",
-              value: "Nouns are the names of things around us. Nouns that are used to name general things are called 'common nouns'"
-            },
-
-            {
-              type: "image",
-              value: "/images/childrenbook.png"
-            },
-
-            {
-              type: "text",
-              value: "Example: cars, rabbit, ship"
-            }
-          ],
-
-          quizId: "english-g1-alphabet"
-        },
-
-        {
-          id: 2,
-          title: "Common Nouns",
-          subtitle: "Identify common nouns",
-          lessonRoute: "/practice/g1-enggrammarnouns",
-
-          content: [
-            {
-              type: "text",
-              value: "Common nouns are general names for things."
-            },
-
-            {
-              type: "image",
-              value: "/images/childrenbook.png"
-            },
-
-            {
-              type: "text",
-              value: "Example: cars, animals, phones"
-            }
-          ],
-
-          quizId: "english-g1-alphabet"
-        },
-
-        {
-          id: 3,
-          title: "Proper Nouns",
-          subtitle: "Identify common nouns",
-          lessonRoute: "/practice/g1-enggrammarnouns",
-
-          content: [
-            {
-              type: "text",
-              value: "Common nouns are general names for things."
-            },
-
-            {
-              type: "image",
-              value: "/images/childrenbook.png"
-            },
-
-            {
-              type: "text",
-              value: "Example: cars, animals, phones"
-            }
-          ],
-
-          quizId: "english-g1-alphabet"
-        }
-      ]
-    }
-  ],
-
-    Malay: [
-      {
-        id: 1,
-        title: "Karangan",
-
-        content: [
+    subjects: {
+      English: {
+        units: [
           {
-            type: "text",
-            value: "Karangan helps students improve writing skills."
+            unitId: 1,
+            title: "Nouns",
+            lessons: [
+              {
+                id: 1,
+                title: "What are nouns?",
+                displayTitle: "Level 1",
+                subtitle: "Basics of nouns",
+                lessonRoute: "/practice/g1-nouns-1",
+                quizId: "english-g1-nouns-1",
+                content: [
+                  { type: "text", value: "Nouns are names of people, places, or things." },
+                  { type: "image", value: "/images/childrenbook.png" }
+                ]
+              },
+              {
+                id: 2,
+                title: "Common Nouns",
+                displayTitle: "Level 2",
+                subtitle: "Learn common nouns",
+                lessonRoute: "/practice/g1-nouns-2",
+                quizId: "english-g1-nouns-2",
+                content: [
+                  { type: "text", value: "Common nouns are general names like 'car' or 'dog'." }
+                ]
+              },
+              {
+                id: 3,
+                title: "Proper Nouns",
+                displayTitle: "Level 3",
+                subtitle: "Learn proper nouns",
+                lessonRoute: "/practice/g1-nouns-3",
+                quizId: "english-g1-nouns-3",
+                content: [
+                  { type: "text", value: "Proper nouns are specific names like 'John' or 'London'." }
+                ]
+              }
+            ]
+          },
+
+          {
+            unitId: 2,
+            title: "Verbs",
+            lessons: []
+          },
+
+          {
+            unitId: 3,
+            title: "Adjectives",
+            lessons: []
+          }
+        ]
+      },
+
+      Malay: {
+        units: [
+          {
+            unitId: 1,
+            title: "Karangan",
+            lessons: [
+              {
+                id: 1,
+                title: "What is Karangan?",
+                content: [
+                  { type: "text", value: "Karangan helps students improve writing skills." }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+
+      Mathematics: {
+        units: [
+          {
+            unitId: 1,
+            title: "Addition",
+            lessons: [
+              {
+                id: 1,
+                title: "What is addition?",
+                displayTitle: "Level 1", 
+                lessonRoute: "/practice/g1-addition",
+                content: [
+                  { type: "text", value: "Addition means combining numbers." }
+                ]
+              }
+            ]
           }
         ]
       }
-    ],
-
-    Mathematics: [
-      {
-        id: 1,
-        title: "Learn addition",
-        lessonRoute: "/practice/g1-addition",
-        backRoute: "/subjects/1/Mathematics",
-        
-        content: [
-          {
-            type: "text",
-            value: "Addition means combining numbers together."
-          },
-
-          {
-            type: "text",
-            value: "If we have 6 apples and add 4 more apple..."
-          },
-
-          {
-            type: "image",
-            value: AdditionImg,
-            width: "w-80",
-            align: "center"
-          },
-
-          {
-            type: "text",
-            value: "Now we have 10 apples!"
-          },
-
-          /*{
-            type: "text",
-            value: "2 + 1 = 3"
-          } */
-        ]
-        
-      },
-
-      {
-        id: 2,
-        title: "Subtraction",
-        lessonRoute: "/practice/g1-subtraction",
-        backRoute: "/subjects/1/Mathematics",
-
-        content: [
-          {
-            type: "text",
-            value: "Subtraction means taking away numbers."
-          },
-
-          {
-            type: "text",
-            value: "If we have 5 apples and take away 3 apples..."
-          },
-
-          {
-            type: "image",
-            value: AdditionImg,
-            width: "w-80",
-            align: "center"
-          },
-
-          {
-            type: "text",
-            value: "Now we have 2 apples!"
-          },
-
-        ]
-      },
-
-      {
-        id: 3,
-        title: "Multiplication",
-
-        content: [
-          {
-            type: "text",
-            value: "Addition means combining numbers together."
-          }
-        ]
-      },
-
-      {
-        id: 4,
-        title: "Division",
-
-        content: [
-          {
-            type: "text",
-            value: "Addition means combining numbers together."
-          }
-        ]
-      },
-    ]
+    }
   }
 };

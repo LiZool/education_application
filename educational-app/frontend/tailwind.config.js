@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        fredoka: ['Fredoka', 'sans-serif'],
+        fredoka: ['"Fredoka"', 'sans-serif'],
+        fun: ['"Baloo 2"', 'sans-serif'],
       }
     },
   },

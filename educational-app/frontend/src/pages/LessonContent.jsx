@@ -5,8 +5,8 @@ import { useParams, useNavigate } from "react-router-dom";
 import { LessonsData } from "../data/LessonsData.js";
 
 export default function LessonContent() {
-
   const navigate = useNavigate();
+  const gradeTheme = LessonsData[gradeId]?.theme;
 
   const {
     gradeId,
@@ -30,7 +30,10 @@ export default function LessonContent() {
   }
 
   return (
-    <div className="min-h-screen bg-blue-500 p-6 text-white">
+    <div className="min-h-screen p-6 text-white bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${gradeTheme?.bgImage})`
+        }}>
 
       <div className="relative flex items-center justify-center mb-6">
 
