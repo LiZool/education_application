@@ -3,8 +3,11 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+
 import TopNavbar from "../components/TopNavbar";
 import Navbar from "../components/NavBar";
+
+import IconBtnCancel from "../assets/images/icons/IconBtnCancel.png"
 
 import { LessonsData } from "../data/LessonsData.js";
 

@@ -5,8 +5,17 @@ import { useNavigate } from "react-router-dom";
 import { G1EnglishNounsQuestions } from "../../../../data/english/G1EnglishNounsQuestions";
 // https://www.magnific.com/free-vector/girl-having-breakfast-doodle-cartoon-character-isolated_19399730.htm#fromView=search&page=1&position=4&uuid=67832d48-8986-4e52-99f4-3b8f3a11a4c6&query=eat+cartoon
 
+// Year Backgrounds 
+import BGYear1 from "../../../../assets/images/grades/background/BGYear1.png"  // https://pngtree.com/back/down?id=MTE3MDQ5OQ==&type=1&time=1781835870&token=ZWIzOTk2Yzg0OWIwYTQ3YmNmNWJjZmI4M2MxYjA4MWM=&t=0
+
+
 export default function G1EngGrammarNounsLesson() {
     const navigate = useNavigate();
+
+    const gradeTheme = {
+        bgColor: "bg-blue-500",
+        bgImage: BGYear1,
+    };
 
     const questions = G1EnglishNounsQuestions;
 
@@ -108,15 +117,44 @@ export default function G1EngGrammarNounsLesson() {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center p-6">
+        <div 
+            className={`
+                min-h-screen 
+                ${gradeTheme?.bgColor} 
+                pt-10 pb-24 p-6 
+                flex items-center justify-center
+                bg-cover bg-center`}
+            style={{
+                backgroundImage: `url(${gradeTheme?.bgImage})`,
+            }}>
             <div className="bg-white rounded-3xl shadow-2xl p-6 w-full max-w-xl text-center">
 
                 {/* QUESTION SCREEN */}
                 {mode === "question" && (
                     <>
-                        <p className="text-2xl font-bold mb-3">
-                            Nouns {currentQuestion + 1} / {questions.length}
-                        </p>
+                        <div className="mt-2 pb-5 flex items-center gap-3">
+                    
+                            {/* Progress bar container */}
+                            <div className="flex-1 h-6 bg-gray-200 rounded-full overflow-hidden shadow-inner">
+                                <div
+                                    className="
+                                        h-full
+                                        bg-gradient-to-r
+                                        from-lime-400
+                                        to-green-500
+                                        transition-all
+                                        duration-500
+                                    "
+                                    style={{
+                                        width: `${((currentQuestion + 1) / questions.length) * 100}%`
+                                    }}
+                                />
+                            </div>
+
+                            <div className="text-3xl animate-pulse">
+                                ❤️
+                            </div>
+                        </div>
 
                         <div className="bg-[#6CD1F0] rounded-3xl py-6 px-4 mb-6 shadow-inner">
                             <h1 className="text-3xl font-extrabold text-white">
