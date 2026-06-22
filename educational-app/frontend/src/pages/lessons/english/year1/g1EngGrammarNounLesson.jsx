@@ -168,22 +168,22 @@ export default function G1EngGrammarNounsLesson() {
                                 </div>
                             </div>
 
-                           <div className="flex items-center justify-between mb-4 gap-3">
+                           <div className="flex flex-col sm:flex-row items-center justify-center mb-4 px-6 gap-3">
                                 {/* Question */}
-                                <div className="flex-1 bg-[#6CD1F0] rounded-2xl py-2 px-3 shadow-inner">
+                                <div className="w-full max-w-[24rem] bg-[#6CD1F0] rounded-2xl py-2 px-3 shadow-inner">
                                     <h1 className="text-2xl font-extrabold text-white text-center">
                                         {questions[currentQuestion].G1NounGrammarQuestions}
                                     </h1>
                                 </div>
 
                                 {/* Score */}
-                                <div className="text-blue-500 px-4 py-2 font-bold text-lg whitespace-nowrap">
+                                <div className="text-blue-500 px-4 py-2 font-bold text-lg whitespace-nowrap sm:self-auto">
                                     ⭐ {score}
                                 </div>
 
                             </div>
 
-                            <div className="grid grid-cols-2 gap-8 justify-items-center">
+                            <div className="grid grid-cols-2 gap-8 justify-items-center px-6 max-w-[24rem] mx-auto mb-6">
                                 {questions[currentQuestion].G1NounGrammarOptions.map(
                                     (option, index) => (
                                         <button
@@ -223,11 +223,6 @@ export default function G1EngGrammarNounsLesson() {
                                 )}
                             </div>
                         </>
-                    
-                    <p className="mt-6 mb-4 text-xl font-bold">
-                        Score: {score}
-                    </p>
-
 
                     {/* FEEDBACK SCREEN */}
                     {feedback && (
