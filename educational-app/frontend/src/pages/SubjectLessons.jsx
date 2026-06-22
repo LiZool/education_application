@@ -28,7 +28,7 @@ export default function SubjectLessons() {
           style={{
             backgroundImage: `url(${gradeTheme?.bgImage})`,
           }}>
-      <TopNavbar />
+      <TopNavbar backRoute={`/subjects/${gradeId}`} />
 
       {/* HEADER */}
       <div className="relative flex items-center justify-center mb-6">

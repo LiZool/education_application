@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 import IconBtnBack from "../assets/images/icons/IconBtnBack.png"  //https://www.pngaaa.com/detail/5656797
 
-export default function TopNavbar() {
+export default function TopNavbar({ backRoute = "/" }) {
   
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export default function TopNavbar() {
 
         {/* Back Button */}
         <motion.button
-          onClick={() => navigate(-1)}
+          onClick={() => navigate(backRoute)}
           whileHover={{ scale: 1.2, x: -3 }}
           whileTap={{ scale: 0.9 }}
         >
