@@ -75,7 +75,7 @@ export default function CompleteReward() {
         </div>
 
         {/* Buttons */}
-        <div className="flex flex-col gap-4">
+        <div className="fflex flex-col md:flex-row justify-between gap-4">
           <button
             onClick={() => navigate(replayRoute, { replace: true })}
             className="bg-yellow-400 text-black font-bold py-4 rounded-2xl text-xl"
