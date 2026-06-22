@@ -168,19 +168,10 @@ export default function G1EngGrammarNounsLesson() {
                                 </div>
                             </div>
 
-                           <div className="flex items-center justify-between mb-4 gap-3">
-                                {/* Question */}
-                                <div className="flex-1 bg-[#6CD1F0] rounded-2xl py-2 px-3 shadow-inner">
-                                    <h1 className="text-2xl font-extrabold text-white text-center">
-                                        {questions[currentQuestion].G1NounGrammarQuestions}
-                                    </h1>
-                                </div>
-
-                                {/* Score */}
-                                <div className="text-blue-500 px-4 py-2 font-bold text-lg whitespace-nowrap">
-                                    ⭐ {score}
-                                </div>
-
+                            <div className="bg-[#6CD1F0] rounded-2xl py-2 px-3 mb-4 shadow-inner max-w-md mx-auto">
+                                <h1 className="text-2xl font-extrabold text-white">
+                                    {questions[currentQuestion].G1NounGrammarQuestions}
+                                </h1>
                             </div>
 
                             <div className="grid grid-cols-2 gap-8 justify-items-center">
@@ -249,7 +240,9 @@ export default function G1EngGrammarNounsLesson() {
                             `}
                         >
                             <div className="flex items-center gap-1">
-
+                                <div className="text-4xl">
+                                    {feedback.emoji}
+                                </div>
 
                                 <div className="text-left flex-1">
                                     <h1
@@ -261,13 +254,17 @@ export default function G1EngGrammarNounsLesson() {
                                     >
                                         {feedback.title}
                                     </h1>
+
+                                    <p className="text-gray-700">
+                                        {feedback.text}
+                                    </p>
                                 </div>
                             </div>
 
                             <button
                                 onClick={nextQuestion}
                                 className={`
-                                    mt-3
+                                    mt-4
                                     w-full
                                     text-white
                                     font-bold

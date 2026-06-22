@@ -7,8 +7,6 @@ import { motion } from "framer-motion";
 import TopNavbar from "../components/TopNavbar";
 import Navbar from "../components/NavBar";
 
-import IconBtnCancel from "../assets/images/icons/IconBtnCancel.png"
-
 import { LessonsData } from "../data/LessonsData.js";
 
 export default function SubjectLessons() {
@@ -34,7 +32,7 @@ export default function SubjectLessons() {
 
       {/* HEADER */}
       <div className="relative flex items-center justify-center mb-6">
-        {/* MAIN CARD (NOW MORE COLORFUL) */}
+        {/* MAIN CARD */}
         {/* bg-gradient-to-r from-yellow-400 via-pink-400 to-orange-400  */}
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
