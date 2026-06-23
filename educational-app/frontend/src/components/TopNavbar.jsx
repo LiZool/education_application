@@ -11,7 +11,7 @@ export default function TopNavbar({ backRoute = "/" }) {
   const navigate = useNavigate();
 
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-yellow-300 border-b-4 border-yellow-500 shadow-lg">
+    <div className="fixed top-0 left-0 w-full h-20 z-50 bg-yellow-300 border-b-4 border-yellow-500 shadow-lg">
       <div className="flex justify-between items-center px-6 py-4">
 
         {/* Back Button */}

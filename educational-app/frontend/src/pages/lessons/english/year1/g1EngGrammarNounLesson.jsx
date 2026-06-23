@@ -8,7 +8,7 @@ import { G1EnglishNounsQuestions } from "../../../../data/english/G1EnglishNouns
 // Year Backgrounds 
 import BGYear1 from "../../../../assets/images/grades/background/BGYear1.png"  // https://pngtree.com/back/down?id=MTE3MDQ5OQ==&type=1&time=1781835870&token=ZWIzOTk2Yzg0OWIwYTQ3YmNmNWJjZmI4M2MxYjA4MWM=&t=0
 import IconBtnCancel from "../../../../assets/images/icons/IconBtnCancel.png"  // https://www.clipartmax.com/middle/m2i8i8Z5d3K9K9Z5_x-button-clipart-x-icon/
-
+import IconCorrect from "../../../../assets/images/icons/IconCorrect.png"  // https://www.pngwing.com/en/free-png-abwde/download
 
 export default function G1EngGrammarNounsLesson() {
     const navigate = useNavigate();
@@ -177,13 +177,13 @@ export default function G1EngGrammarNounsLesson() {
                                 </div>
 
                                 {/* Score */}
-                                <div className="text-blue-500 px-4 py-2 font-bold text-lg whitespace-nowrap sm:self-auto">
+                                <div className="text-blue-500 px-3 py-1 font-bold text-lg whitespace-nowrap sm:self-auto">
                                     ⭐ {score}
                                 </div>
 
                             </div>
 
-                            <div className="grid grid-cols-2 gap-8 justify-items-center px-6 max-w-[24rem] mx-auto mb-6">
+                            <div className="grid grid-cols-2 gap-8 justify-items-center px-5 max-w-[24rem] mx-auto mb-5">
                                 {questions[currentQuestion].G1NounGrammarOptions.map(
                                     (option, index) => (
                                         <button
@@ -215,7 +215,7 @@ export default function G1EngGrammarNounsLesson() {
                                                 "
                                             />
 
-                                            <p className="text-xl font-bold capitalize">
+                                            <p className="hidden md:block text-xl font-bold capitalize">
                                                 {option.text}
                                             </p>
                                         </button>
@@ -226,58 +226,65 @@ export default function G1EngGrammarNounsLesson() {
 
                     {/* FEEDBACK SCREEN */}
                     {feedback && (
-                        <div
+                    <div
+                        className={`
+                        w-full mt-1
+                        ${
+                            feedback.type === "correct"
+                            ? "bg-green-100 border-green-500"
+                            : "bg-yellow-100 border-yellow-500"
+                        }
+                        border-t-4
+                        p-2
+                        `}
+                    >
+                        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+
+                        {/* Left side: icon + text */}
+                        <div className="flex items-center gap-3 flex-1">
+                            {feedback.type === "correct" && (
+                            <img
+                                src={IconCorrect}
+                                alt="Correct"
+                                className="w-12 h-12"
+                            />
+                            )}
+
+                            <div className="text-left">
+                            <h1
+                                className={`text-2xl font-bold ${
+                                feedback.type === "correct"
+                                    ? "text-green-600"
+                                    : "text-yellow-600"
+                                }`}
+                            >
+                                {feedback.title}
+                            </h1>
+
+                            <p className="hidden md:block text-gray-700 font-medium">
+                                {feedback.text}
+                            </p>
+                            </div>
+                        </div>
+
+                        {/* Right side button */}
+                        <button
+                            onClick={nextQuestion}
                             className={`
-                                w-full mt-1
-                                ${
-                                    feedback.type === "correct"
-                                        ? "bg-green-100"
-                                        : "bg-yellow-100"
-                                }
-                                border-t-4
-                                ${
-                                    feedback.type === "correct"
-                                        ? "border-green-500"
-                                        : "border-yellow-500"
-                                }
-                                p-5
+                            w-full md:w-auto
+                            px-8 py-2
+                            text-white font-bold rounded-2xl
+                            ${
+                                feedback.type === "correct"
+                                ? "bg-green-500 hover:bg-green-600"
+                                : "bg-yellow-500 hover:bg-yellow-600"
+                            }
                             `}
                         >
-                            <div className="flex items-center gap-1">
-
-
-                                <div className="text-left flex-1">
-                                    <h1
-                                        className={`text-2xl font-bold ${
-                                            feedback.type === "correct"
-                                                ? "text-green-600"
-                                                : "text-yellow-600"
-                                        }`}
-                                    >
-                                        {feedback.title}
-                                    </h1>
-                                </div>
-                            </div>
-
-                            <button
-                                onClick={nextQuestion}
-                                className={`
-                                    mt-3
-                                    w-full
-                                    text-white
-                                    font-bold
-                                    py-3
-                                    rounded-2xl
-                                    ${
-                                        feedback.type === "correct"
-                                            ? "bg-green-500 hover:bg-green-600"
-                                            : "bg-yellow-500 hover:bg-yellow-600"
-                                    }
-                                `}
-                            >
-                                Continue
-                            </button>
+                            Continue
+                        </button>
                         </div>
+                    </div>
                     )}
                 </div>
             </div>

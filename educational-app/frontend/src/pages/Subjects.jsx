@@ -239,7 +239,7 @@ export default function Lesson() {
       <TopNavbar />
 
       {/* MAIN CONTENT */}
-      <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-8 pt-32 px-6 content-start">
+      <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 gap-8 pt-32 px-6 pb-28 content-start lg:pl-28 lg:pb-6">
                       {/* flex-1 grid grid-cols-2 gap-3 pt-2 px-4 justify-items-center */}
          {subjects.map((subject, index) => (
             <LessonCard

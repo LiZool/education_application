@@ -93,9 +93,20 @@ function NavItem({ icon, hoverIcon, label, to }) {
 
 export default function Navbar() {
   return (
-    <div className="fixed bottom-0 left-0 w-full z-50 bg-yellow-300 border-t-4 border-yellow-500 shadow-lg">
+    <div className="
+      fixed 
+      bottom-0 left-0 
+      w-full 
+      lg:top-20 lg:bottom-0 lg:w-24 lg:h-[calc(100vh-5rem)]
+      z-40 
+      bg-yellow-300 
+      border-t-4 border-yellow-500 
+      lg:border-t-0 lg:border-r-4
+      shadow-lg">
       {/* <div className="fixed bottom-0 left-0 w-full z-50 bg-green-300 border-t-4 border-yellow-500 shadow-lg"> */}
-      <div className="flex justify-around items-center py-4">
+      <div className="
+        flex flex-row justify-around items-center py-4
+        lg:flex-col lg:justify-center lg:h-full lg:gap-10">
         <NavItem
           icon={IconHome}
           hoverIcon={IconHomeHover}
