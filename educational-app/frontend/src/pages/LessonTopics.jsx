@@ -67,80 +67,79 @@ export default function LessonTopics() {
       </div>
 
       {/* TOPIC CARDS */}
-      <div className="flex flex-col items-center gap-8 py-8">
-        {units.map((unit, index) => (
-            <motion.div
-                key={unit.unitId}
-                whileHover={{ scale: 1.05, y: -8 }}
-                whileTap={{ scale: 0.95 }}
-                className="
-                    w-full max-w-lg
-                    bg-white rounded-3xl
-                    shadow-[0_8px_20px_rgba(0,0,0,0.18)]
-                    overflow-hidden
-                    cursor-pointer"
-                onClick={() =>
-                navigate(`/lessons/${gradeId}/${subjectName}/${unit.unitId}`)
-                }
-            >
-                <p className="text-sm font-bold text-gray-500 mb-2">
-                    Section {index + 1}
-                </p>
+      {/* TOPIC CARDS */}
+<div className="flex flex-col gap-8 py-8">
+  {units.map((unit, index) => (
+    <motion.div
+      key={unit.unitId}
+      whileHover={{ scale: 1.05, y: -8 }}
+      whileTap={{ scale: 0.95 }}
+      className="
+        w-full max-w-4xl mx-auto
+        bg-white rounded-3xl
+        shadow-[0_8px_20px_rgba(0,0,0,0.18)]
+        overflow-hidden cursor-pointer
+      "
+      onClick={() =>
+        navigate(`/lessons/${gradeId}/${subjectName}/${unit.unitId}`)
+      }
+    >
+      <div className="flex flex-col lg:flex-row items-stretch">
 
-                {/* Image */}
-                <div className="flex items-center justify-center gap-6 mt-4">
-                
-                {/* Speech bubble (LEFT) */}
-                <div className="relative bg-yellow-200 rounded-xl px-4 py-2 inline-block">
-                    <p className="font-bold">{unit.title}</p>
+        {/* LEFT SIDE */}
+        <div
+          className="
+            w-full lg:w-1/2
+            p-6
+            bg-blue-100
+            sm:bg-yellow-100
+            md:bg-green-100
+            lg:bg-pink-100
+            flex flex-col justify-center
+          "
+        >
+          {/* Progress */}
+          <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+            <div
+              className="bg-green-500 h-full"
+              style={{
+                width: `${unit.lessons.length > 0 ? 100 : 0}%`,
+              }}
+            />
+          </div>
 
-                    {/* tail pointing right */}
-                    <div className="absolute top-1/2 -right-2 w-4 h-4 bg-yellow-200 rotate-45 -translate-y-1/2"></div>
-                </div>
+          {/* Section */}
+          <p className="mt-2 text-sm font-medium">
+            Section {index + 1}
+          </p>
 
-                {/* Image (RIGHT) */}
-                <img
-                    src={unit.image}
-                    alt={unit.title}
-                    className="w-28 h-28 object-contain"
-                />
-                </div>
+          {/* Title */}
+          <p className="mt-2 font-bold text-lg">
+            {unit.title}
+          </p>
+        </div>
 
-                {/* Bottom Section */}
-                <div
-                className="
-                    mt-5
-                    p-4
-                    rounded-2xl
-                    bg-blue-100
-                    sm:bg-yellow-100
-                    md:bg-green-100
-                    lg:bg-pink-100
-                "
-                >
-                {/* Progress */}
-                <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
-                    <div
-                    className="bg-green-500 h-full"
-                    style={{ width: `${unit.lessons.length > 0 ? 100 : 0}%` }}
-                    />
-                </div>
+        {/* RIGHT SIDE */}
+        <div className="w-full lg:w-1/2 flex items-center justify-center gap-6 p-6">
 
-                {/* Status */}
-                <p className="mt-2 text-sm font-medium">
-                    {unit.lessons.length > 0
-                    ? `${unit.lessons.length} Lessons`
-                    : "Coming Soon"}
-                </p>
+          {/* Speech bubble */}
+          <div className="relative bg-yellow-200 rounded-xl px-4 py-2 inline-block">
+            <p className="font-bold">{unit.title}</p>
+            <div className="absolute top-1/2 -right-2 w-4 h-4 bg-yellow-200 rotate-45 -translate-y-1/2"></div>
+          </div>
 
-                {/* Title */}
-                <p className="mt-2 font-bold text-lg">
-                    {unit.title}
-                </p>
-                </div>
-            </motion.div>
-            ))}
+          {/* Image */}
+          <img
+            src={unit.image}
+            alt={unit.title}
+            className="w-28 h-28 object-contain"
+          />
+        </div>
+
       </div>
+    </motion.div>
+  ))}
+</div>
 
       <Navbar />
     </div>
