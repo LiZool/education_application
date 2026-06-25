@@ -141,7 +141,7 @@ function LessonCard({ subject, index, gradeId }) {
         createRipple(e);
         audioRef.current.currentTime = 0;
         audioRef.current.play().catch(() => {});
-        navigate(`/subjects/${gradeId}/${subject?.name ?? subject}`)
+        navigate(`/topics/${gradeId}/${subject?.name ?? subject}`)
       }}
 
       whileHover={{ y: -10, scale: 1.05 }}

@@ -1,15 +1,15 @@
-// src/pages/SubjectLessons.jsx
+// src/pages/Lessons.jsx
 
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
-import TopNavbar from "../components/TopNavbar";
-import Navbar from "../components/NavBar";
+import TopNavbar from "../components/TopNavbar.jsx";
+import Navbar from "../components/NavBar.jsx";
 
 import { LessonsData } from "../data/LessonsData.js";
 
-export default function SubjectLessons() {
+export default function Lessons() {
   const navigate = useNavigate();
   const { gradeId, subjectName } = useParams();
 
@@ -116,7 +116,7 @@ export default function SubjectLessons() {
                         <motion.button
                           key={lesson.id}
                           onClick={() =>
-                            navigate(`/lesson/${gradeId}/${subjectName}/${lesson.id}`)
+                            navigate(`/topics/${gradeId}/${subjectName}/${unit.unitId}`)
                           }
                           className="
                             w-28 h-28

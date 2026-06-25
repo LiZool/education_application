@@ -5,6 +5,8 @@ import BGYear1 from "../assets/images/grades/background/BGYear1.png"  // https:/
 
 // Images
 import AdditionImg from "../assets/images/grades/addition/What-Is-Addition-1.png";
+import NounsImg from "../assets/images/icons/IconActivity.png"
+import VerbsImg from "../assets/images/icons/IconActivity.png"
 
 export const LessonsData = {
   1: {
@@ -19,6 +21,7 @@ export const LessonsData = {
           {
             unitId: 1,
             title: "Nouns",
+            image: NounsImg,
             lessons: [
               {
                 id: 1,
@@ -60,6 +63,7 @@ export const LessonsData = {
           {
             unitId: 2,
             title: "Verbs",
+            image: VerbsImg,
             lessons: []
           },
 

@@ -14,7 +14,8 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import Subjects from "./pages/Subjects";
-import SubjectLessons from "./pages/SubjectLessons"
+import LessonTopics from "./pages/LessonTopics"; //LessonTopics
+import Lessons from "./pages/Lessons"
 import LessonContent from './pages/LessonContent'
 import Quiz from "./pages/Quiz";
   // Lessons
@@ -37,8 +38,8 @@ function AnimatedRoutes() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/subjects/:gradeId" element={<Subjects />} />
-        <Route path="/subjects/:gradeId/:subjectName" element={<SubjectLessons />} />
-        <Route path="/lesson/:gradeId/:subjectName/:lessonId" element={<LessonContent />} />
+        <Route path="/topics/:gradeId/:subjectName" element={<LessonTopics />} />
+        <Route path="/lesson/:gradeId/:subjectName/:topicId/:lessonId" element={<LessonContent />} />
           /**** Maths ****/
           <Route path="/practice/g1-addition" element={<G1AdditionLesson />} />
           <Route path="/practice/g1-subtraction" element={<G1SubtractionLesson />} />
