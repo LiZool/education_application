@@ -30,49 +30,6 @@ export default function Lessons() {
           }}>
       <TopNavbar />
 
-      {/* HEADER */}
-      <div className="relative flex items-center justify-center mb-6">
-        {/* MAIN CARD */}
-        {/* bg-gradient-to-r from-yellow-400 via-pink-400 to-orange-400  */}
-        <motion.div
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: "spring", stiffness: 120 }}
-          className="
-            relative text-center px-12 py-6
-            rounded-3xl
-            bg-red-600 
-            shadow-[0_10px_0px_rgba(0,0,0,0.2)]
-          "
-        >
-
-          <motion.h1
-            animate={{ scale: [1, 1.08, 1] }}
-            transition={{ repeat: Infinity, duration: 1.8 }}
-            className="
-              text-5xl md:text-6xl
-              font-fredoka font-extrabold
-              text-white
-              drop-shadow-[0_4px_0px_rgba(0,0,0,0.4)]
-            "
-          >
-            ✨ {subjectName} ✨
-          </motion.h1>
-
-          <div className="
-            mt-4 inline-flex items-center gap-2
-            px-6 py-2
-            bg-white text-pink-600 font-extrabold
-            rounded-full
-            shadow-lg
-          ">
-            Grade {gradeId} Adventure
-          </div>
-
-        </motion.div>
-
-      </div>
-
       {/* LESSONS */}
       <div className="flex flex-col items-center gap-12 py-8">
           {units.map((unit) => {
@@ -99,11 +56,63 @@ export default function Lessons() {
 
             return (
               <div key={unit.unitId} className="w-full">
+                {/* UNIT HEADER */}
+                <div className="flex justify-center mb-8">
+                  <div
+                    className="
+                      w-full max-w-xl
+                      bg-green-500
+                      text-white
+                      rounded-3xl
+                      px-6 py-5
+                      shadow-xl
+                      flex items-center gap-4
+                    "
+                  >
+                    {/* Back Arrow */}
+                    <button
+                      onClick={() => navigate(-1)}
+                      className="
+                        w-12 h-12
+                        rounded-full
+                        bg-white/20
+                        flex items-center justify-center
+                        text-2xl
+                        hover:scale-110
+                        transition
+                      "
+                    >
+                      ←
+                    </button>
+
+                    {/* Text Wrapper */}
+                    <div className="flex flex-col flex-1">
+                      <p className="text-sm font-bold opacity-80 uppercase tracking-wide">
+                        Section {unit.unitId}
+                      </p>
+
+                      <h2 className="text-2xl font-bold leading-tight break-words">
+                        {unit.title}
+                      </h2>
+                    </div>
+                  </div>
+                </div>
 
                 {/* SECTION TITLE */}
-                <h2 className="text-3xl font-bold text-white text-center mb-6">
-                  {unit.title}
-                </h2>
+                <div className="flex justify-center mb-6">
+                  <div className="w-full max-w-xl flex items-center gap-4 px-2">
+                    {/* Left line */}
+                    <div className="flex-1 h-[3px] bg-white rounded-full opacity-70"></div>
+
+                    {/* Title */}
+                    <h2 className="text-3xl font-bold text-white whitespace-nowrap">
+                      {unit.title}
+                    </h2>
+
+                    {/* Right line */}
+                    <div className="flex-1 h-[3px] bg-white rounded-full opacity-70"></div>
+                  </div>
+                </div>
 
                 {/* ROWS */}
                 <div className="flex flex-col items-center gap-8">

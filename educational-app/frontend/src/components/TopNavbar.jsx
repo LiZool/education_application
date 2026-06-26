@@ -6,9 +6,17 @@ import { motion } from "framer-motion";
 
 import IconBtnBack from "../assets/images/icons/IconBtnBack.png"  //https://www.pngaaa.com/detail/5656797
 
-export default function TopNavbar({ backRoute = "/" }) {
+export default function TopNavbar({ backRoute }) {
   
   const navigate = useNavigate();
+
+  const handleBack = () => {
+    if (backRoute) {
+      navigate(backRoute);
+    } else {
+      navigate(-1); // go to previous page
+    }
+  };
 
   return (
     <div className="fixed top-0 left-0 w-full h-20 z-50 bg-yellow-300 border-b-4 border-yellow-500 shadow-lg">
@@ -16,7 +24,7 @@ export default function TopNavbar({ backRoute = "/" }) {
 
         {/* Back Button */}
         <motion.button
-          onClick={() => navigate(backRoute)}
+           onClick={handleBack}
           whileHover={{ scale: 1.2, x: -3 }}
           whileTap={{ scale: 0.9 }}
         >

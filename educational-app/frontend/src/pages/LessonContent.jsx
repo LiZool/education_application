@@ -2,6 +2,12 @@
 
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
+
+// Navigation
+import TopNavbar from "../components/TopNavbar";
+import Navbar from "../components/NavBar";
+
+// Data
 import { LessonsData } from "../data/LessonsData.js";
 
 export default function LessonContent() {
@@ -35,157 +41,148 @@ export default function LessonContent() {
   }
 
   return (
-    <div className="min-h-screen p-6 text-white bg-cover bg-center"
+    <div className="min-h-screen pt-28 pb-24 p-6 bg-cover bg-center"
         style={{
           backgroundImage: `url(${gradeTheme?.bgImage})`
         }}>
 
-      <div className="relative flex items-center justify-center mb-6">
+      <TopNavbar />
 
-        {/* Back Button */}
-        <button
-          onClick={() =>
-            navigate(`/topics/${gradeId}/${subjectName}`)
-          }
-          className="
-            absolute left-0
-            bg-white
-            text-black
-            px-4 py-2
-            rounded-xl
-            shadow-md
-            hover:scale-105
-            transition
-          "
-        >
-          ← Back
-        </button>
-
-        <h1 className="text-4xl font-bold text-white text-center">
-          {lesson.title}
-        </h1>
-
-      </div>
-
-      <div className="bg-white text-black rounded-2xl p-6 shadow-lg">
-        <div className="space-y-4">
-          {lesson.content.map((item, index) => {
-            if (item.type === "text") {
-              return (
-               <p
-                  key={index}
-                  className="
-                    text-2xl
-                    leading-relaxed
-                    text-center
-                    font-bold
-                    text-gray-700
-                  "
-                >
-                  {item.value
-                    .split(/(\d+|\+|\-|\=)/g)
-                    .map((part, i) => {
-
-                      // Highlight numbers
-                      if (!isNaN(part) && part !== "") {
-
-                      const colors = [
-                        "text-red-500",
-                        "text-blue-500",
-                        "text-green-500",
-                        "text-pink-500",
-                        "text-purple-500",
-                        "text-orange-500",
-                      ];
-
-                      const randomColor =
-                        colors[Number(part) % colors.length];
-
-                      return (
-                        <span
-                          key={i}
-                          className={`
-                            inline-block
-                            ${randomColor}
-                            text-6xl
-                            font-extrabold
-                            animate-bounce
-                            mx-1
-                          `}
-                        >
-                          {part}
-                        </span>
-                      );
-                    }
-
-                      // Highlight, math symbols
-                      if (["+", "-", "="].includes(part)) {
-                        return (
-                          <span
-                            key={i}
-                            className="
-                              text-blue-500
-                              text-4xl
-                              mx-2
-                              font-extrabold
-                            "
-                          >
-                            {part}
-                          </span>
-                        );
-                      }
-
-                      return part;
-                    })}
-                </p>
-              );
-            }
-
-            if (item.type === "image") {
-              return (
-              <div
-                key={index}
-                className={`flex ${
-                  item.align === "left"
-                    ? "justify-start"
-                    : item.align === "right"
-                    ? "justify-end"
-                    : "justify-center"
-                }`}
-              >
-                <img
-                  src={item.value}
-                  alt=""
-                  className={`
-                    rounded-xl
-                    ${item.width || "w-full"}
-                  `}
-                />
-              </div>
-              );
-            }
-
-            return null;
-          })}
-        </div>
-
-        <div className="flex justify-center mt-4">
-          <button
-            onClick={() => navigate(lesson.lessonRoute)}
-            className="
-              mt-6
-              bg-yellow-400
-              hover:bg-yellow-300
-              text-black
-              font-bold
-              px-8 py-4
-              rounded-2xl
-              hover:scale-125
-              transition">
-            Start Lesson
-          </button>
+      <div className="flex justify-center mb-8">
+        <div className="bg-yellow-400 rounded-3xl px-8 py-5 shadow-xl border-b-4 border-yellow-600">
+          <p className="text-sm font-bold text-white uppercase tracking-wide text-center">
+            Lesson {lesson.id}
+          </p>
+          <h1 className="text-4xl font-bold text-white text-center">
+            {lesson.title}
+          </h1>
         </div>
       </div>
+
+      <div className="flex justify-center">
+        <div className="w-full max-w-xl mb-24">
+          <div className="bg-white text-black rounded-2xl p-6 shadow-lg">
+            <div className="space-y-4">
+              {lesson.content.map((item, index) => {
+                if (item.type === "text") {
+                  return (
+                  <p
+                      key={index}
+                      className="
+                        text-2xl
+                        leading-relaxed
+                        text-center
+                        font-bold
+                        text-gray-700
+                      "
+                    >
+                      {item.value
+                        .split(/(\d+|\+|\-|\=)/g)
+                        .map((part, i) => {
+
+                          // Highlight numbers
+                          if (!isNaN(part) && part !== "") {
+
+                          const colors = [
+                            "text-red-500",
+                            "text-blue-500",
+                            "text-green-500",
+                            "text-pink-500",
+                            "text-purple-500",
+                            "text-orange-500",
+                          ];
+
+                          const randomColor =
+                            colors[Number(part) % colors.length];
+
+                          return (
+                            <span
+                              key={i}
+                              className={`
+                                inline-block
+                                ${randomColor}
+                                text-6xl
+                                font-extrabold
+                                animate-bounce
+                                mx-1
+                              `}
+                            >
+                              {part}
+                            </span>
+                          );
+                        }
+
+                          // Highlight, math symbols
+                          if (["+", "-", "="].includes(part)) {
+                            return (
+                              <span
+                                key={i}
+                                className="
+                                  text-blue-500
+                                  text-4xl
+                                  mx-2
+                                  font-extrabold
+                                "
+                              >
+                                {part}
+                              </span>
+                            );
+                          }
+
+                          return part;
+                        })}
+                    </p>
+                  );
+                }
+
+                if (item.type === "image") {
+                  return (
+                  <div
+                    key={index}
+                    className={`flex ${
+                      item.align === "left"
+                        ? "justify-start"
+                        : item.align === "right"
+                        ? "justify-end"
+                        : "justify-center"
+                    }`}
+                  >
+                    <img
+                      src={item.value}
+                      alt=""
+                      className={`
+                        rounded-xl
+                        ${item.width || "w-full"}
+                      `}
+                    />
+                  </div>
+                  );
+                }
+
+                return null;
+              })}
+            </div>
+
+            <div className="flex justify-center mt-4">
+              <button
+                onClick={() => navigate(lesson.lessonRoute)}
+                className="
+                  mt-6
+                  bg-yellow-400
+                  hover:bg-yellow-300
+                  text-black
+                  font-bold
+                  px-8 py-4
+                  rounded-2xl
+                  hover:scale-125
+                  transition">
+                Start Lesson
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Navbar />
     </div>
   );
 }
