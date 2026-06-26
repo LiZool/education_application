@@ -10,6 +10,7 @@ export default function LessonContent() {
   const {
     gradeId,
     subjectName,
+    topicId,
     lessonId
   } = useParams();
 
@@ -44,7 +45,7 @@ export default function LessonContent() {
         {/* Back Button */}
         <button
           onClick={() =>
-            navigate(`/subjects/${gradeId}/${subjectName}`)
+            navigate(`/topics/${gradeId}/${subjectName}`)
           }
           className="
             absolute left-0

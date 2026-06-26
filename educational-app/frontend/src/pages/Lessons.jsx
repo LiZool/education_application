@@ -116,7 +116,7 @@ export default function Lessons() {
                         <motion.button
                           key={lesson.id}
                           onClick={() =>
-                            navigate(`/topics/${gradeId}/${subjectName}/${unit.unitId}`)
+                            navigate(`/lesson/${gradeId}/${subjectName}/${unit.unitId}/${lesson.id}`)
                           }
                           className="
                             w-28 h-28

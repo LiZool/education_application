@@ -67,79 +67,109 @@ export default function LessonTopics() {
       </div>
 
       {/* TOPIC CARDS */}
-      {/* TOPIC CARDS */}
-<div className="flex flex-col gap-8 py-8">
-  {units.map((unit, index) => (
-    <motion.div
-      key={unit.unitId}
-      whileHover={{ scale: 1.05, y: -8 }}
-      whileTap={{ scale: 0.95 }}
-      className="
-        w-full max-w-4xl mx-auto
-        bg-white rounded-3xl
-        shadow-[0_8px_20px_rgba(0,0,0,0.18)]
-        overflow-hidden cursor-pointer
-      "
-      onClick={() =>
-        navigate(`/lessons/${gradeId}/${subjectName}/${unit.unitId}`)
-      }
-    >
-      <div className="flex flex-col lg:flex-row items-stretch">
+        <div className="flex flex-col gap-8 py-8">
+          {units.map((unit, index) => (
+            <motion.div
+              key={unit.unitId}
+              whileHover={{ scale: 1.05, y: -8 }}
+              whileTap={{ scale: 0.95 }}
+              className="
+                w-[90%]
+                md:w-[75%]
+                lg:w-[60%]
+                xl:w-[50%]
+                mx-auto
+                bg-white
+                rounded-3xl
+                shadow-[0_8px_20px_rgba(0,0,0,0.18)]
+                overflow-hidden
+                cursor-pointer
+              "
+              onClick={() =>
+                navigate(`/lessons/${gradeId}/${subjectName}/${unit.unitId}`)
+              }
+            >
+              <div className="flex flex-col lg:flex-row items-stretch">
 
-        {/* LEFT SIDE */}
-        <div
-          className="
-            w-full lg:w-1/2
-            p-6
-            bg-blue-100
-            sm:bg-yellow-100
-            md:bg-green-100
-            lg:bg-pink-100
-            flex flex-col justify-center
-          "
-        >
-          {/* Progress */}
-          <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
-            <div
-              className="bg-green-500 h-full"
-              style={{
-                width: `${unit.lessons.length > 0 ? 100 : 0}%`,
-              }}
-            />
-          </div>
+                {/* LEFT SIDE */}
+                <div
+                  className="
+                    w-full lg:w-1/2
+                    p-6
+                    bg-blue-100
+                    sm:bg-yellow-100
+                    md:bg-green-100
+                    lg:bg-pink-100
+                    flex flex-col justify-center
+                  "
+                >
 
-          {/* Section */}
-          <p className="mt-2 text-sm font-medium">
-            Section {index + 1}
-          </p>
+                  {/* Section */}
+                  <p className="mt-2 text-sm font-medium">
+                    Section {index + 1}
+                  </p>
 
-          {/* Title */}
-          <p className="mt-2 font-bold text-lg">
-            {unit.title}
-          </p>
+                  {/* Title */}
+                  <p className="mt-2 font-bold text-lg">
+                    {unit.title}
+                  </p>
+
+                  {/* Progress */}
+                  <div className="w-full bg-gray-200 rounded-full h-4 overflow-hidden">
+                    <div
+                      className="bg-green-500 h-full"
+                      style={{
+                        width: `${unit.lessons.length > 0 ? 100 : 0}%`,
+                      }}
+                    />
+                  </div>
+
+                  {/* Start / Continue button (desktop only) */}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation(); // prevents card onClick from triggering twice
+                      navigate(
+                        `/lessons/${gradeId}/${subjectName}/${unit.unitId}`
+                      );
+                    }}
+                    className="
+                      hidden lg:block
+                      mt-4
+                      w-full
+                      bg-green-500
+                      hover:bg-green-600
+                      text-white
+                      font-bold
+                      py-3
+                      rounded-2xl
+                      transition
+                    "
+                  >
+                    {unit.lessons.length > 0 ? "Continue" : "Start"}
+                  </button>
+                </div>
+
+                {/* RIGHT SIDE */}
+                <div className="w-full lg:w-1/2 flex items-center justify-center gap-6 p-6">
+
+                  {/* Speech bubble */}
+                  <div className="relative bg-yellow-200 rounded-xl px-4 py-2 inline-block">
+                    <p className="font-bold">{unit.title}</p>
+                    <div className="absolute top-1/2 -right-2 w-4 h-4 bg-yellow-200 rotate-45 -translate-y-1/2"></div>
+                  </div>
+
+                  {/* Image */}
+                  <img
+                    src={unit.image}
+                    alt={unit.title}
+                    className="w-28 h-28 object-contain"
+                  />
+                </div>
+
+              </div>
+            </motion.div>
+          ))}
         </div>
-
-        {/* RIGHT SIDE */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center gap-6 p-6">
-
-          {/* Speech bubble */}
-          <div className="relative bg-yellow-200 rounded-xl px-4 py-2 inline-block">
-            <p className="font-bold">{unit.title}</p>
-            <div className="absolute top-1/2 -right-2 w-4 h-4 bg-yellow-200 rotate-45 -translate-y-1/2"></div>
-          </div>
-
-          {/* Image */}
-          <img
-            src={unit.image}
-            alt={unit.title}
-            className="w-28 h-28 object-contain"
-          />
-        </div>
-
-      </div>
-    </motion.div>
-  ))}
-</div>
 
       <Navbar />
     </div>

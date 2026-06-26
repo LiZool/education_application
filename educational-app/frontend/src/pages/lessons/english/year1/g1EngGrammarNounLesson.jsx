@@ -97,7 +97,7 @@ export default function G1EngGrammarNounsLesson() {
                     score,
                     maxQuestions: questions.length,
                     replayRoute: "/practice/g1-nouns-1",
-                    backRoute: "/subjects/1/English"
+                    backRoute: "/topics/1/English"
                 }
             });
         }
@@ -131,7 +131,7 @@ export default function G1EngGrammarNounsLesson() {
                             <div className="mt-2 pb-2 flex items-center gap-3">
                                 {/* Cancel button */}
                                 <button
-                                    onClick={() => navigate("/subjects/1/English")}
+                                    onClick={() => navigate("/topics/1/English")}W
                                     className="
                                         w-12 h-12
                                         flex items-center justify-center

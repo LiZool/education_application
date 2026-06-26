@@ -39,6 +39,7 @@ function AnimatedRoutes() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/subjects/:gradeId" element={<Subjects />} />
         <Route path="/topics/:gradeId/:subjectName" element={<LessonTopics />} />
+        <Route path="/lessons/:gradeId/:subjectName/:topicId" element={<Lessons />} />
         <Route path="/lesson/:gradeId/:subjectName/:topicId/:lessonId" element={<LessonContent />} />
           /**** Maths ****/
           <Route path="/practice/g1-addition" element={<G1AdditionLesson />} />

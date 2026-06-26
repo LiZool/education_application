@@ -12,7 +12,7 @@ export default function CompleteReward() {
     score = 0,
     maxQuestions = 10,
     replayRoute = "/practice/g1-addition",
-    backRoute = "/subjects/1/Mathematics",
+    backRoute = "/topics/1/Mathematics",
     subject = "",
     lesson = "",
   } = location.state || {};
