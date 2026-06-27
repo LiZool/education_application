@@ -65,6 +65,7 @@ export const LessonsData = {
             title: "Verbs",
             image: VerbsImg,
             lessons: []
+            
           },
 
           {

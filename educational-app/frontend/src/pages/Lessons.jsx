@@ -32,7 +32,7 @@ export default function Lessons() {
 
       {/* LESSONS */}
       <div className="flex flex-col items-center gap-12 py-8">
-          {units.map((unit) => {
+          {units.map((unit, unitIndex) => {
 
             // create lessons per unit
             const lessons = unit.lessons || [];
@@ -99,20 +99,19 @@ export default function Lessons() {
                 </div>
 
                 {/* SECTION TITLE */}
+                {unitIndex !== 0 && (
                 <div className="flex justify-center mb-6">
                   <div className="w-full max-w-xl flex items-center gap-4 px-2">
-                    {/* Left line */}
                     <div className="flex-1 h-[3px] bg-white rounded-full opacity-70"></div>
 
-                    {/* Title */}
                     <h2 className="text-3xl font-bold text-white whitespace-nowrap">
                       {unit.title}
                     </h2>
 
-                    {/* Right line */}
                     <div className="flex-1 h-[3px] bg-white rounded-full opacity-70"></div>
                   </div>
                 </div>
+              )}
 
                 {/* ROWS */}
                 <div className="flex flex-col items-center gap-8">
